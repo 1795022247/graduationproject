@@ -1,0 +1,400 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"><head>
+    <meta charset="utf-8">
+    <title>酒店预订--酒店管理系统网站</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all">
+    <link rel="stylesheet" href="/static/css/user.css" media="all">
+
+
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.rotate.min.js"></script>
+    <link id="layuicss-layer" rel="stylesheet" href="/static/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all"><link id="layuicss-laydate" rel="stylesheet" href="http://localhost:8080/static/layui/css/modules/laydate/default/laydate.css?v=5.0.9" media="all"></head>
+<body class="childrenBody" style="">
+<fieldset class="layui-elem-field">
+    <legend>酒店预订检索</legend>
+    <div class="layui-field-box">
+        <form class="layui-form"  id="searchForm"  action="/findByorder">
+
+
+            <div class="layui-inline"  style="margin-left: 15px">
+                <label>房间号:</label>
+                <div class="layui-input-inline">
+                    <input type="text" value="" name="roomId" placeholder="请输入房间号"
+                           class="layui-input search_input">
+                </div>
+            </div>
+            <div class="layui-inline">
+                <button type="submit" class="layui-btn" >查询</button>
+            </div>
+            <div class="layui-inline">
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+
+        </form>
+    </div>
+</fieldset>
+<div class="layui-table-body layui-table-main">
+    <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+        <tr>
+
+            <th data-field="id" data-key="1-0-1" data-unresize="true"
+                class=" layui-unselect">
+                <div class="layui-table-cell laytable-cell-1-0-1"><span>ID</span><span
+                        class="layui-table-sort layui-inline"><i
+                        class="layui-edge layui-table-sort-asc" title="升序"></i><i
+                        class="layui-edge layui-table-sort-desc" title="降序"></i></span>
+                </div>
+            </th>
+            <th data-field="roomId" data-key="1-0-2" data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-2"><span>房间号</span></div>
+            </th>
+            <th data-field="roomName" data-key="1-0-3" data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-3"><span>客户名</span>
+                </div>
+            </th>
+            <th data-field="standardPrice" data-key="1-0-4" data-minwidth="120"
+                class="">
+                <div class="layui-table-cell laytable-cell-1-0-4"><span>身份证号</span>
+                </div>
+            </th>
+            <th data-field="status" data-key="1-0-5" data-unresize="true"
+                class=" layui-unselect">
+                <div class="layui-table-cell laytable-cell-1-0-5"><span>订单状态</span><span
+                        class="layui-table-sort layui-inline"><i
+                        class="layui-edge layui-table-sort-asc" title="升序"></i><i
+                        class="layui-edge layui-table-sort-desc" title="降序"></i></span>
+                </div>
+            </th>
+            <th data-field="createDate" data-key="1-0-7" data-unresize="true" class="">
+                <div class="layui-table-cell laytable-cell-1-0-7"><span>下单时间</span>
+                </div>
+            </th>
+
+            <th data-field="createDate" data-key="1-0-8" data-unresize="true" class="">
+                <div class="layui-table-cell laytable-cell-1-0-8"><span>总付款</span>
+                </div>
+            </th>
+
+            <th data-field="createDate" data-key="1-0-9" data-unresize="true" class="">
+                <div class="layui-table-cell laytable-cell-1-0-9"><span>押金数</span>
+                </div>
+            </th>
+            <!--<th data-field="createDate" data-key="1-0-10" data-unresize="true" class="">-->
+                <!--<div class="layui-table-cell laytable-cell-1-0-10"><span>剩余天数</span>-->
+                <!--</div>-->
+            <!--</th>-->
+            <th data-field="createDate" data-key="1-0-11" data-unresize="true" class="">
+                <div class="layui-table-cell laytable-cell-1-0-11"><span>是否入住</span>
+                </div>
+            </th>
+            <th data-field="createDate" data-key="1-0-12" data-unresize="true" class="">
+                <div class="layui-table-cell laytable-cell-1-0-12"><span>结账</span>
+                </div>
+            </th>
+        </tr>
+        <tr data-index="1" class="" th:each="cli:${cliList.list}">
+
+            <td data-field="id" data-key="1-0-1" class="">
+                <div class="layui-table-cell laytable-cell-1-0-1"><span
+                        th:text="${cli.id}"></span></div>
+            </td>
+            <td data-field="roomId" data-key="1-0-2" data-content="19"
+                data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-2"><span
+                        class="layui-badge layui-bg-green"> <span
+                        th:text="${cli.roomId}"></span></span></div>
+            </td>
+            <td data-field="roomName" data-key="1-0-3" data-content=""
+                data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-3"><span> <span
+                        th:text="${cli.flag5}"></span></span>
+                </div>
+            </td>
+            <td data-field="standardPrice" data-key="1-0-4" data-content=""
+                data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-4"><span
+                        class="layui-badge layui-bg-blue"> <span
+                        th:text="${cli.flag4}"></span></span></div>
+            </td>
+            <td data-field="status" data-key="1-0-5" data-content="3" class="">
+                <div class="layui-table-cell laytable-cell-1-0-5" ><span th:if="${cli.sign==0}">未结账</span>
+                    <span th:if="${cli.sign==1}">已结账</span>
+                    <span th:if="${cli.sign==2}">正在进行</span>
+                </div>
+            </td>
+            <td data-field="status" data-key="1-0-5" data-content="3" class="">
+                <div class="layui-table-cell laytable-cell-1-0-5" ><span th:text="${cli.flag3}"></span>
+
+                </div>
+            </td>
+            <td data-field="status" data-key="1-0-5" data-content="3" class="">
+                <div class="layui-table-cell laytable-cell-1-0-5" ><span th:text="${cli.totalprice}">未结账</span>
+
+                </div>
+            </td>
+            <td data-field="status" data-key="1-0-5" data-content="3" class="">
+                <div class="layui-table-cell laytable-cell-1-0-5" ><span th:text="${cli.deposi}">未结账</span>
+
+                </div>
+            </td>
+
+            <!--<td data-field="status" data-key="1-0-5" data-content="3" class="" th:if="${cli.sign}!=1" >-->
+                <!--<div class="layui-table-cell laytable-cell-1-0-5" ><span th:text="${cli.deposi}">未结账</span>-->
+
+                <!--</div>-->
+            <!--</td>-->
+            <td data-field="createDate" data-key="1-0-6" data-content="1545992730000"
+                class="" th:if="${cli.sign}!=1">
+                <div class="layui-table-cell laytable-cell-1-0-6">
+                    <!--<span><a  class="layui-badge layui-bg-green" th:onClick="'javascript:Recover_deposit(\''+${cli.id}+'\');'">追缴押金</a></span>-->
+
+                    <span th:if="${cli.sign}==0"><a  class="layui-badge layui-bg-green" th:onClick="'javascript:ruzhu(\''+${cli.id}+'\');'">入住</a></span>
+                </div>
+            </td>
+            <td data-field="createDate" data-key="1-0-6" data-content="1545992730000" th:if="${cli.sign}!=1"
+                class="">
+                <div class="layui-table-cell laytable-cell-1-0-6">
+                    <span   class="layui-badge layui-bg-green"><a th:onClick="'javascript:accounts(\''+${cli.id}+'\');'">结账</a>
+
+
+                    </span>
+
+
+
+                    </span>
+
+                    <span   class="layui-badge layui-bg-red"><a th:onClick="'javascript:unsubscribe(\''+${cli.id}+'\');'">退订</a>
+
+
+                    </span>
+                </div>
+            </td>
+        </tr>
+
+
+        </tbody>
+
+        <script type="text/javascript" src="/static/layui/layui.js"></script>
+        <script type="text/javascript" src="/static/js/tools.js"></script>
+        <script>
+
+            function accounts(item) {
+
+                layer.confirm("你确定要结账么？",{btn:['是的,我确定','我再想想']},
+                    function(){
+                   // alert(item);
+                        $.post("/accounts",{"id":item},function (res){
+                            if(res.success){
+                                layer.msg("结账成功",{time: 1000},function(){
+                                    location.reload();
+                                });
+                            }else{
+                                layer.msg(res.message);
+                            }
+
+                        });
+                    }
+                )
+
+            }
+
+
+
+
+            function Recover_deposit(item) {
+
+                layer.confirm("你确定要追缴押金？",{btn:['是的,我确定','我再想想']},
+
+                    function delsc() {
+
+                        var id = item
+
+                        var url = "/Recover_deposit"
+
+
+
+                        layer.prompt({title:'请输入押金数'},function (val,index) {
+
+
+                            $.post(url,{id:id,val:val},function (res) {
+
+                                if(res.success){
+                                    layer.msg("追加成功",{time: 1000},function(){
+                                        location.reload();
+                                    });
+                                }else{
+                                    layer.msg(res.message);
+                                }
+                            })
+
+                        })
+
+
+                    }
+
+
+
+                )
+
+            }
+
+
+            function ruzhu(item) {
+
+                layer.confirm("开始入住？",{btn:['是的,我确定','我再想想']},
+
+                    function delsc() {
+
+                        var id = item
+
+                        var url = "/ruzhu"
+
+
+
+                        layer.prompt({title:'请输入预计入住天数'},function (val,index) {
+
+
+                            $.post(url,{id:id,val:val},function (res) {
+
+                                if(res.success){
+                                    layer.msg("入住成功",{time: 1000},function(){
+                                        location.reload();
+                                    });
+                                }else{
+                                    layer.msg(res.message);
+                                }
+                            })
+
+                        })
+
+
+                    }
+
+
+
+                )
+
+            }
+
+
+
+
+            function unsubscribe(item) {
+
+
+                layer.confirm("你确定要退订么这可能要扣除部分押金？",{btn:['是的,我确定','我再想想']},
+
+                    function delsc() {
+
+
+
+                        var url = "/unsubscribe"
+
+                        layer.prompt({title:'请输入退订原因'},function (val,index) {
+
+
+                            $.post(url,{id:item,val:val},function (res) {
+
+                                if(res.success){
+                                    layer.msg("退订成功",{time: 1000},function(){
+                                        location.reload();
+                                    });
+                                }else{
+                                    layer.msg(res.message);
+                                }
+                            })
+
+                        })
+
+
+                    }
+
+
+
+                )
+
+            }
+        </script>
+    </table>
+</div>
+
+
+<div class="layui-table-page">
+    <!--<div id="layui-table-page1">-->
+        <!--<div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-1"><span-->
+                <!--class="layui-laypage-limits"></span><span>共</span><span-->
+                <!--class="layui-laypage-count" th:text="${cliList.total}"></span><span>条</span>-->
+            <!--<a class="layui-laypage-last"-->
+               <!--title="首页" data-page="3"-->
+               <!--href="?page=1"-->
+            <!--&gt;首页</a>-->
+            <!--<a-->
+                <!--th:href="@{'/backorderlists?page='+${cliList.pageNum-1}}"-->
+
+                <!--class="layui-laypage-prev layui-disabled"-->
+                <!--data-page="0"><i-->
+                <!--class="layui-icon"></i></a><a href="/backorderlists?page=1">-->
+            <!--<span-->
+                    <!--class="layui-laypage-curr"><em class="layui-laypage-em"></em><em>1</em></span>-->
+
+        <!--</a>-->
+
+            <!--<a  href="/backorderlists?page=2" data-page="2"  th:if="${cliList.pageNum>=2}">2</a>-->
+
+
+            <!--<i class="layui-icon"   th:if="${cliList.pageNum>=2}"></i></a>-->
+
+            <!--<span class="layui-laypage-skip">到第<input type="text" min="1" value="1" class="layui-input">页<button-->
+                    <!--type="button" class="layui-laypage-btn">确定</button></span></div>-->
+    <!--</div>-->
+    <div id="layui-table-page1">
+        <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-1"><span
+                class="layui-laypage-limits"></span><span>共</span><span
+                class="layui-laypage-count" th:text="${cliList.total}"></span><span>条</span>
+            <a class="layui-laypage-last"
+               title="首页" data-page="3"
+               href="/backorderlists?page=1"
+            >首页</a>
+            <a
+                    th:href="@{'/backorderlists?page='+${cliList.pageNum-1}}"
+
+                    class="layui-laypage-prev layui-disabled"
+                    data-page="0"><i
+                    class="layui-icon"></i></a><a th:href="@{'/backorderlists?page='+${cliList.pageNum}}"> <span
+                    class="layui-laypage-curr"><em class="layui-laypage-em"></em><em th:text="${cliList.pageNum}"></em></span></a>
+
+            <a
+                    th:href="@{'/backorderlists?page='+${cliList.pageNum+1}}" data-page="2"> <span th:if="${cliList.pageNum}<${cliList.pages}"><em th:text="${cliList.pageNum+1}"></em></span>
+            </a>
+            <a class="layui-laypage-last"
+               title="尾页" data-page="3"
+               th:href="@{'/backorderlists?page='+${cliList.pages}}">尾页</a><a
+                    th:href="@{'/backorderlists?page='+${cliList.pageNum+1}}"
+                    class="layui-laypage-next"
+                    data-page="2">
+                <i
+                        class="layui-icon"></i></a>
+
+            <!---->
+            <!--<span class="layui-laypage-skip">到第<input type="text" min="1"-->
+            <!--value="1"-->
+            <!--class="layui-input">页<button-->
+            <!--type="button" class="layui-laypage-btn">确定</button></span>-->
+
+        </div>
+    </div>
+    
+</div>
+</body></html>

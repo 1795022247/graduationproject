@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+
+	<!-- 生成简单的方式 targetRuntime = "MyBatis3Simple" -->
+	<context id="testTables" targetRuntime="Mybatis3">
+		<!-- 配置pojo的序列化 -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" userId="root" password=""
+						connectionURL="jdbc:mysql://127.0.0.1:3306/hotolmanager?useUnicode=true">
+			<!-- 修改数据库连接信息 -->
+		</jdbcConnection>
+
+
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+			NUMERIC 类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.jesper.model" targetProject="src/main/test"/>
+
+		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+		<javaClientGenerator targetPackage="com.jesper.mapper" targetProject="src/main/test"
+							 type="XMLMAPPER"/>
+
+
+		<table tableName="hotol"/>
+		<!--<table tableName="goods_type"/>-->
+		<!--<table tableName="goods"/>-->
+		<!--<table tableName="admin"/>-->
+		<!--<table tableName="room"/>-->
+
+		<!--<table tableName="client_user"/>-->
+		<!--<table tableName="cli_order"/>-->
+
+
+	</context>
+</generatorConfiguration>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>酒店房间--酒店管理系统网站</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all">
+    <link rel="stylesheet" href="/static/css/user.css" media="all">
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.rotate.min.js"></script>
+    <link id="layuicss-layer" rel="stylesheet" href="/static/layui/css/modules/layer/default/layer.css" media="all">
+    <link id="layuicss-laydate" rel="stylesheet"
+          href="http://localhost:8050/static/layui/css/modules/laydate/default/laydate.css?v=5.0.9" media="all">
+</head>
+<body class="childrenBody">
+<fieldset class="layui-elem-field">
+    <legend>酒店房间检索</legend>
+    <div class="layui-field-box">
+        <form class="layui-form" action="/findByLikeRoom" id="searchForm">
+            <div class="layui-inline" style="margin-left: 15px">
+                <label>房间号:</label>
+                <div class="layui-input-inline">
+                    <input type="text" value="" name="roomNo" placeholder="请输入房间号"
+                           class="layui-input search_input">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 15px">
+                <label>房间状态:</label>
+                <div class="layui-input-inline">
+                    <select name="falg1">
+                        <option value="" selected="">请选择房间状态</option>
+                        <option value="0">空闲</option>
+                        <option value="1">预定</option>
+                        <option value="2">入住</option>
+                    </select>
+                    <div class="layui-unselect layui-form-select">
+                        <div class="layui-select-title"><input type="text" placeholder="请选择房间状态" name="falg1" value=""
+                                                               readonly=""
+                                                               class="layui-input layui-unselect"><i
+                                class="layui-edge"></i></div>
+                        <dl class="layui-anim layui-anim-upbit">
+                            <dd lay-value="" class="layui-select-tips">请选择房间状态</dd>
+                            <dd lay-value="0" class="">空闲</dd>
+                            <dd lay-value="1" class="">预定</dd>
+                            <dd lay-value="2" class="">入住</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 15px">
+                <label>房间类型:</label>
+                <div class="layui-input-inline">
+                    <select name="roomType">
+                        <option value="" selected="">请选择房间类型</option>
+                        <option value="1">单人间</option>
+                        <option value="2">双人间</option>
+                        <option value="3">标准间</option>
+                        <option value="4">商务间</option>
+                        <option value="5">豪华间</option>
+                        <option value="6">普通套间</option>
+                        <option value="7">总统套间</option>
+
+
+                    </select>
+                    <div class="layui-unselect layui-form-select">
+                        <div class="layui-select-title"><input type="text" placeholder="请选择房间类型" name="roomType"
+                                                               value="" readonly=""
+                                                               class="layui-input layui-unselect"><i
+                                class="layui-edge"></i></div>
+                        <dl class="layui-anim layui-anim-upbit">
+                            <dd lay-value="" class="layui-select-tips">请选择房间类型</dd>
+                            <dd lay-value="1" class="">单人间</dd>
+                            <dd lay-value="2" class="">双人间</dd>
+                            <dd lay-value="3" class="">标准间</dd>
+                            <dd lay-value="4" class="">商务间</dd>
+                            <dd lay-value="5" class="">豪华间</dd>
+                            <dd lay-value="6" class="">普通套间</dd>
+                            <dd lay-value="7" class="">总统套间</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 15px">
+                <label>所属楼层:</label>
+                <div class="layui-input-inline">
+                    <select name="sign">
+                        <option value="" selected="">请选择所属楼层</option>
+                        <option value="1">酒店1楼</option>
+                        <option value="2">酒店2楼</option>
+                        <option value="3">酒店3楼</option>
+                        <option value="4">酒店4楼</option>
+                        <option value="5">酒店5楼</option>
+                        <option value="6">酒店6楼</option>
+                        <option value="7">酒店7楼</option>
+                    </select>
+                    <div class="layui-unselect layui-form-select">
+                        <div class="layui-select-title"><input type="text" placeholder="请选择所属楼层" value="" readonly=""
+                                                               name="sign" class="layui-input layui-unselect"><i
+                                class="layui-edge"></i></div>
+                        <dl class="layui-anim layui-anim-upbit">
+                            <dd lay-value="" class="layui-select-tips">请选择所属楼层</dd>
+                            <dd lay-value="1" class="">酒店1楼</dd>
+                            <dd lay-value="2" class="">酒店2楼</dd>
+                            <dd lay-value="3" class="">酒店3楼</dd>
+                            <dd lay-value="4" class="">酒店4楼</dd>
+                            <dd lay-value="5" class="">酒店5楼</dd>
+                            <dd lay-value="6" class="">酒店6楼</dd>
+                            <dd lay-value="7" class="">酒店7楼</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-inline">
+                <input type="submit" class="layui-btn" lay-submit="" lay-filter="searchForm">
+            </div>
+            <div class="layui-inline">
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+            <div class="layui-inline">
+                <a class="layui-btn layui-btn-normal" data-type="addHotelRoom">添加酒店房间</a>
+
+
+            </div>
+        </form>
+    </div>
+</fieldset>
+<div class="layui-form users_list">
+    <table class="layui-table" id="test" lay-filter="demo"></table>
+    <div class="layui-form layui-border-box layui-table-view" lay-filter="LAY-table-1" style=" ">
+        <div class="layui-table-box">
+            <div class="layui-table-header">
+                <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
+                    <thead>
+                    <tr>
+                        <th data-field="0" data-unresize="true">
+                            <div class="layui-table-cell laytable-cell-1-0 laytable-cell-checkbox"><input
+                                    type="checkbox" name="layTableCheckbox" lay-skin="primary"
+                                    lay-filter="layTableAllChoose">
+                                <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i
+                                        class="layui-icon"></i></div>
+                            </div>
+                        </th>
+                        <!--<th data-field="1" data-unresize="true">-->
+                        <!--<div class="layui-table-cell laytable-cell-1-1 laytable-cell-numbers"><span>序号</span></div>-->
+                        <!--</th>-->
+                        <th data-field="coverImg">
+                            <div class=" laytable-cell-1-coverImg"><span>房间封面</span></div>
+                        </th>
+                        <th data-field="roomName">
+                            <div class=" laytable-cell-1-roomName"><span>房间名称</span></div>
+                        </th>
+                        <th data-field="roomNumber">
+                            <div class="layui-table-cell laytable-cell-1-roomNumber"><span>房间号</span></div>
+                        </th>
+                        <th data-field="bedType">
+                            <div class="layui-table-cell laytable-cell-1-bedType"><span>床型</span></div>
+                        </th>
+                        <th data-field="broadband">
+                            <div class="layui-table-cell laytable-cell-1-broadband"><span>宽带</span></div>
+                        </th>
+                        <th data-field="standardPrice">
+                            <div class="layui-table-cell laytable-cell-1-standardPrice"><span>标准价</span></div>
+                        </th>
+                        <!--<th data-field="memberPrice">-->
+                        <!--<div class="layui-table-cell laytable-cell-1-memberPrice"><span>会员价</span></div>-->
+                        <!--</th>-->
+                        <th data-field="roomStatus">
+                            <div class="laytable-cell-1-createDate"><span>房间状态</span></div>
+                        </th>
+
+
+                        <!--<th data-field="delFlag">-->
+                        <!--<div class="layui-table-cell laytable-cell-1-delFlag"><span>是否删除</span></div>-->
+                        <!--</th>-->
+                        <th data-field="createDate" data-unresize="true">
+                            <div class="layui-table-cell laytable-cell-1-createDate"><span>创建时间</span></div>
+                        </th>
+                        <th data-field="14">
+                            <div class="layui-table-cell laytable-cell-1-14" align="center"><span>操作</span></div>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="layui-table-body layui-table-main">
+                <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+
+                    <tr th:each="room : ${pageInforoom.list}" data-index="0" class="">
+                        <td data-field="0">
+
+                            <div class="layui-table-cell laytable-cell-1-0 laytable-cell-checkbox"><input
+                                    type="checkbox" name="layTableCheckbox" lay-skin="primary">
+                                <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i
+                                        class="layui-icon"></i></div>
+
+                            </div>
+
+
+                        </td>
+                        <!--<td data-field="1">-->
+                        <!--<div class="layui-table-cell laytable-cell-1-1 laytable-cell-numbers">1</div>-->
+                        <!--</td>-->
+                        <td data-field="coverImg"
+                            data-content="http://pji8adcyw.bkt.clouddn.com/950f5d78-d2a2-4e60-843a-60cbd0bd2651.jpg">
+                            <div class="layui-table-cell laytable-cell-1-coverImg"><span id="coverImg_1">
+                                <img
+                                        lay-event="imagecoverImg" layer-pid="1"
+                                        th:src="${room.image}"
+
+                                        style="width: 40px;"/></span></div>
+                        </td>
+                        <td data-field="roomName">
+                            <div class="layui-table-cell laytable-cell-1-roomName"><span
+                                    th:text="${room.roomName}"></span></div>
+                        </td>
+                        <td data-field="roomNumber">
+                            <div class="layui-table-cell laytable-cell-1-roomNumber"><span
+                                    th:text="${room.roomNo}"></span></div>
+                        </td>
+                        <td data-field="bedType">
+                            <div class="layui-table-cell laytable-cell-1-bedType" th:switch="${room.roomType}">
+                                <span th:case="0">一张单人床</span>
+
+                                <span th:case="1">双人床</span>
+
+
+                            </div>
+                        </td>
+                        <td data-field="broadband">
+                            <div class="layui-table-cell laytable-cell-1-broadband">免费wifi</div>
+                        </td>
+                        <td data-field="standardPrice">
+                            <div class="layui-table-cell laytable-cell-1-standardPrice"><span
+                                    th:text="${room.price}"></span></div>
+                        </td>
+                        <!--<td data-field="memberPrice">-->
+                        <!--<div class="layui-table-cell laytable-cell-1-memberPrice">169</div>-->
+                        <!--</td>-->
+                        <!--<td data-field="roomStatus" data-content="1">-->
+                        <!--<div class="layui-table-cell laytable-cell-1-roomStatus"><span>预定</span></div>-->
+                        <!--</td>-->
+
+                        <td data-field="delFlag" data-content="false">
+                            <div class="layui-table-cell laytable-cell-1-delFlag"> <!-- 这里的 checked 的状态只是演示 --> <span
+                                    class="layui-badge layui-bg-green">正常</span></div>
+                        </td>
+                        <td data-field="createDate" data-content="1545526842000">
+                            <div class="layui-table-cell laytable-cell-1-createDate">2018-03-22 09:00:42</div>
+                        </td>
+                        <td data-field="14" data-off="true" align="center">
+                            <div class="layui-table-cell laytable-cell-1-14">
+                                <a class="layui-btn layui-btn-xs"
+                                   th:href="@{'/toupdataRoom?id='+${room.id}}">编辑</a>
+
+                                <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del"
+                                   th:onclick="'javascript:delsc(\''+${room.id}+'\');'">删除</a>
+
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+            <div id="demo7"></div>
+
+            <div class="layui-table-page">
+                <div id="layui-table-page1">
+                    <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-1"><span
+                            class="layui-laypage-limits"></span><span>共</span><span
+                            class="layui-laypage-count" th:text="${pageInforoom.total}"></span><span>条</span>
+                        <a class="layui-laypage-last"
+                           title="首页" data-page="3"
+                          href="backroomlist?page=1"
+                         >首页</a>
+                        <a
+                            th:href="@{'/backroomlist?page='+${pageInforoom.pageNum-1}}"
+
+                            class="layui-laypage-prev layui-disabled"
+                            data-page="0"><i
+                            class="layui-icon"></i></a><a th:href="@{'/backroomlist?page='+${pageInforoom.pageNum}}"> <span
+                            class="layui-laypage-curr"><em class="layui-laypage-em"></em><em th:text="${pageInforoom.pageNum}"></em></span></a>
+
+                        <a
+                                th:href="@{'/backroomlist?page='+${pageInforoom.pageNum+1}}" data-page="2"> <span th:if="${pageInforoom.pageNum}<${pageInforoom.pages}"><em th:text="${pageInforoom.pageNum+1}"></em></span>
+                        </a>
+                        <a class="layui-laypage-last"
+                                                                              title="尾页" data-page="3"
+                                                                              th:href="@{'/backroomlist?page='+${pageInforoom.pages}}">尾页</a><a
+                            th:href="@{'/backroomlist?page='+${pageInforoom.pageNum+1}}"
+                            class="layui-laypage-next"
+                            data-page="2">
+                            <i
+                            class="layui-icon"></i></a>
+
+                        <!---->
+                        <!--<span class="layui-laypage-skip">到第<input type="text" min="1"-->
+                                                                                                  <!--value="1"-->
+                                                                                                  <!--class="layui-input">页<button-->
+                            <!--type="button" class="layui-laypage-btn">确定</button></span>-->
+
+                    </div>
+                </div>
+            </div>
+
+            <script>
+
+                function fenye() {
+
+                    $.post("/backroomlist", {"page": 2}, function (res) {
+                        if (true) {
+                            layer.msg("分页成功", {time: 1000}, function () {
+                                window.location.reload();
+                            });
+                        } else {
+                            layer.msg(res.message);
+                        }
+
+                    });
+
+                }
+            </script>
+            <style>.laytable-cell-1-0 {
+                width: 48px;
+            }
+
+            .laytable-cell-1-1 {
+                width: 40px;
+            }
+
+            .laytable-cell-1-coverImg {
+                width: 80px;
+            }
+
+            .laytable-cell-1-roomName {
+                width: 80px;
+            }
+
+            .laytable-cell-1-roomNumber {
+                width: 80px;
+            }
+
+            .laytable-cell-1-bedType {
+                width: 80px;
+            }
+
+            .laytable-cell-1-broadband {
+                width: 80px;
+            }
+
+            .laytable-cell-1-standardPrice {
+                width: 80px;
+            }
+
+            .laytable-cell-1-memberPrice {
+                width: 80px;
+            }
+
+            .laytable-cell-1-roomStatus {
+                width: 80px;
+            }
+
+            .laytable-cell-1-roomTypeId {
+                width: 80px;
+            }
+
+            .laytable-cell-1-floorId {
+                width: 80px;
+            }
+
+            .laytable-cell-1-delFlag {
+                width: 163px;
+            }
+
+            .laytable-cell-1-createDate {
+                width: 204px;
+            }
+
+            .laytable-cell-1-14 {
+                width: 204px;
+            }</style>
+        </div>
+
+    </div>
+    <div id="page"></div>
+    <script type="text/javascript" src="/static/layui/layui.js"></script>
+    <script type="text/javascript" src="/static/js/tools.js"></script>
+
+
+    <script th:inline="none">
+
+        function delsc(item) {
+
+
+            layer.confirm("你确定要删除该酒店房间么？", {btn: ['是的,我确定', '我再想想']},
+                function () {
+                    $.post("/delsRoom", {"id": item}, function (res) {
+                        if (res.success) {
+                            layer.msg("删除成功", {time: 1000}, function () {
+                                location.reload();
+                            });
+                        } else {
+                            layer.msg(res.message);
+                        }
+
+                    });
+                }
+            )
+
+        }
+
+        layui.use(['layer', 'form', 'table', 'laydate'], function () {
+            var layer = layui.layer,
+                $ = layui.jquery,
+                form = layui.form,
+                laydate = layui.laydate,
+                table = layui.table;
+
+
+            var active = {
+                addHotelRoom: function () {
+                    var addIndex = layer.open({
+                        title: "添加酒店房间",
+                        type: 2,
+                        content: "/toaddRoom",
+                        success: function (layero, addIndex) {
+                            setTimeout(function () {
+                                layer.tips('点击此处返回酒店房间列表', '.layui-layer-setwin .layui-layer-close', {
+                                    tips: 3
+                                });
+                            }, 500);
+                        }
+                    });
+                    //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+                    $(window).resize(function () {
+                        layer.full(addIndex);
+                    });
+                    layer.full(addIndex);
+                }
+            };
+
+            $('.layui-inline .layui-btn-normal').on('click', function () {
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+        });
+
+
+    </script>
+
+
+    <!--<script>-->
+    <!--layui.use(['layer','form','table','laydate'], function() {-->
+    <!--var layer = layui.layer,-->
+    <!--$ = layui.jquery,-->
+    <!--form = layui.form,-->
+    <!--laydate = layui.laydate,-->
+    <!--table = layui.table;-->
+
+
+    <!--//监听工具条-->
+
+
+    <!--var t = {-->
+    <!--elem: '#test',-->
+    <!--url:'/backroomlist',-->
+    <!--method:'post',-->
+    <!--page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档-->
+    <!--layout: ['limit', 'count', 'prev', 'page', 'next', 'skip'], //自定义分页布局-->
+    <!--//,curr: 5 //设定初始在第 5 页-->
+    <!--groups: 2, //只显示 1 个连续页码-->
+    <!--first: "首页", //显示首页-->
+    <!--last: "尾页", //显示尾页-->
+    <!--limits:[3,10, 20, 30]-->
+    <!--},-->
+    <!--cellMinWidth: 80, //全局定义常规单元格的最小宽度，layui 2.2.1 新增-->
+    <!--cols: [-->
+    <!--[-->
+    <!--//{type:'checkbox'},-->
+    <!--{type:'numbers', title: '序号'},-->
+    <!--// {field:'coverImg', title: '房间封面',templet:'#coverImg'},-->
+    <!--// {field:'roomName', title: '房间名称'},-->
+    <!--// {field:'roomNumber', title: '房间号'},-->
+    <!--// {field:'bedType', title: '床型'},-->
+    <!--// {field:'broadband', title: '宽带'},-->
+    <!--// {field:'standardPrice', title: '标准价'},-->
+    <!--// {field:'memberPrice', title: '会员价'},-->
+    <!--// {field:'roomStatus', title: '房间状态',templet:'#roomStatus'},-->
+    <!--// {field:'roomTypeId', title: '房间类型',templet:'#roomTypeId'},-->
+    <!--// {field:'floorId', title: '所属楼层',templet:'#floorId'},-->
+    <!--// {field:'delFlag',    title: '是否删除',width:'12%',templet:'#userStatus'},-->
+    <!--// {field:'createDate',  title: '创建时间',width:'15%',templet:'<div>{{ layui.laytpl.toDateString(d.createDate) }}</div>',unresize: true}, //单元格内容水平居中-->
+    <!--// {fixed: 'right', title:'操作',  width: '15%', align: 'center',toolbar: '#barDemo'}-->
+    <!--]-->
+    <!--]-->
+    <!--};-->
+    <!--table.render(t);-->
+
+
+    <!--});-->
+    <!--</script>-->
+
+
+    <!--<script>-->
+    <!--layui.use(['laypage', 'layer'], function() {-->
+    <!--var laypage = layui.laypage-->
+    <!--, layer = layui.layer;-->
+
+
+    <!--//完整功能-->
+    <!--laypage.render({-->
+    <!--elem: 'demo7'-->
+    <!--, count: 100-->
+    <!--, layout: ['count', 'prev', 'page', 'next', 'limit', 'refresh', 'skip']-->
+    <!--, jump: function (obj) {-->
+    <!--console.log(obj)-->
+    <!--}-->
+    <!--});-->
+
+
+    <!--//调用分页-->
+    <!---->
+
+    <!--});-->
+
+
+    <!--</script>-->
+
+
+</div>
+
+</body>
+</html>

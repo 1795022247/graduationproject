@@ -1,0 +1,52 @@
+@startuml
+
+== 预定阶段 ==
+
+JSP -> CliOrderController : 发起预定请求
+activate JSP
+activate CliOrderController
+
+CliOrderController -> CliOrderController : 接到参数调用业务接口
+activate CliOrderController #FFBBBB
+
+CliOrderController -> CliOrderMapper : 响Mapper层发起请求
+activate CliOrderMapper
+
+CliOrderMapper --> DB : 插入数据
+activate DB
+DB --> CliOrderMapper: 插入成功
+
+CliOrderMapper --> CliOrderController : 插入成功
+CliOrderController -> JSP : 返回给页面成功状态
+deactivate DB
+deactivate CliOrderMapper
+deactivate CliOrderController
+deactivate CliOrderController
+deactivate JSP
+== 追缴押金阶段 ==
+
+JSP -> CliOrderController : 发起追缴押金请求
+activate JSP
+activate CliOrderController
+
+CliOrderController -> CliOrderController : 接到参数调用业务接口查看订单是否可以追缴押金如果可以则进行追缴押金业务
+activate CliOrderController #FFBBBB
+
+CliOrderController -> CliOrderMapper : 响Mapper层发起请求
+activate CliOrderMapper
+
+CliOrderMapper --> DB : 更新数据
+activate DB
+DB --> CliOrderMapper: 更新成功
+'destroy CliOrderMapper
+CliOrderMapper --> CliOrderController : 更新成功
+CliOrderController -> JSP : 返回给页面追缴押金成功状态
+
+deactivate DB
+deactivate CliOrderMapper
+deactivate CliOrderController
+deactivate CliOrderController
+deactivate JSP
+
+@enduml
+

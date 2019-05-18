@@ -1,0 +1,53 @@
+
+<html  xmlns:th="http://www.w3.org/1999/xhtml">
+<div class="layui-header header header-store" style="background-color: #083a6d;" th:fragment="top">
+    <div class="layui-container"> <a class="logo" href="/user/toindex"> <img src="/static/picture/logo.png" alt="layui">
+    </a>
+        <div class="layui-form component" lay-filter="LAY-site-header-component"></div>
+        <ul class="layui-nav">
+            <li class="layui-nav-item layui-hide-xs"> <a href="/user/toindex">首页</a> </li>
+
+            <li class="layui-nav-item layui-hide-xs"> <a href="/user/toindex">房间</a> </li>
+
+            <li th:if="${session.clientUser==null}" class="layui-nav-item layui-hide-xs layui-this"> <a href="/user/tologin" target="center">登入</a> </li>
+            <li th:if="${session.clientUser!=null}" class="layui-nav-item fly-layui-user layui-this" id="FLY-notice">
+
+
+                <a class="fly-nav-avatar" href="/user/myInfo" id="LAY_header_avatar">
+                    <img src="/static/hotel/images/head.jpg"  width="40px">
+                    <cite class="layui-hide-xs" th:text="${session.clientUser.clientName}"></cite>
+                </a>
+
+
+            </li>
+
+            <script>
+                layui.cache.page = 'store';
+                layui.cache.user = {
+                    username: '游客',
+                    uid: -1,
+                    avatar: '//res.layui.com/static/images/fly/avatar/default.png',
+                    experience: 0,
+                    sum: 0,
+                    vip: 0,
+                    sex: ''
+                };
+                layui.config({
+                    version: "1545301148662"
+                }).extend({
+                    'fly': '/static/hotel/layui/dist/lay/modules/fly/index'
+                }).use('fly');
+            </script>
+            <li class="layui-nav-item layui-hide-xs "> <a href="/user/register">注册<span class="layui-badge-dot"></span></a>
+
+
+            </li>
+
+
+
+
+            <span class="layui-nav-bar" style="left: 560px; top: 55px; width: 0px; opacity: 0;"></span>
+        </ul>
+    </div>
+</div>
+</html>

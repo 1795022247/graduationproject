@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html class="fly-html-layui fly-html-store" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/hotel/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="/static/hotel/css/global.css" charset="utf-8">
+    <link rel="stylesheet" href="/static/hotel/css/global(1).css" charset="utf-8">
+    <link rel="stylesheet" href="/static/hotel/css/store.css" charset="utf-8">
+    <script src="https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c"></script>
+    <script src="/static/hotel/layui/dist/layui.js"></script>
+
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.rotate.min.js"></script>
+    <title>我的预约-酒店管理系统</title>
+    <link id="layuicss-layer" rel="stylesheet"
+          href="/static/hotel/layui/dist/css/modules/layer/default/layer.css?v=3.1.1" media="all">
+    <link id="layuicss-laydate" rel="stylesheet"
+          href="/static/hotel/layui/dist/css/modules/laydate/default/laydate.css?v=5.0.9" media="all">
+</head>
+<body>
+<!--<div class="layui-header header header-store" style="background-color: #083a6d;">-->
+<!--<div class="layui-container"> <a class="logo" href="/hotel/index.html"> <img src="/static/hotel/images/logo.png" alt="layui">-->
+<!--</a>-->
+<!--<div class="layui-form component" lay-filter="LAY-site-header-component"></div>-->
+<!--<ul class="layui-nav">-->
+<!--<li class="layui-nav-item layui-hide-xs"> <a href="/hotel/index.html">首页</a> </li>-->
+
+<!--<li class="layui-nav-item layui-hide-xs"> <a href="/hotel/list/0/0/1/20.html">房间</a> </li>-->
+
+
+<!--<li class="layui-nav-item fly-layui-user layui-this" id="FLY-notice">-->
+
+
+<!--<a class="fly-nav-avatar" href="/hotel/myInfo.html" id="LAY_header_avatar">-->
+<!--<img src="/static/hotel/images/head.jpg">-->
+<!--<cite class="layui-hide-xs">欢迎您：李四</cite>-->
+<!--</a>-->
+
+<!--</li>-->
+
+<!--<li class="layui-nav-item layui-hide-xs"> <a href="/hotel/exitSystem.html">退出</a> </li>-->
+
+
+<!--<span class="layui-nav-bar" style="left: 560px; top: 55px; width: 0px; opacity: 0;"></span>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<div class="layui-header header header-store" style="background-color: #083a6d;">
+    <div class="layui-container"><a class="logo" href="#"> <img src="/static/hotel/images/logo.png"
+                                                                alt="layui">
+    </a>
+        <div class="layui-form component" lay-filter="LAY-site-header-component"></div>
+        <ul class="layui-nav">
+            <li class="layui-nav-item layui-hide-xs"><a href="/user/toindex">首页</a></li>
+
+            <li class="layui-nav-item layui-hide-xs"><a href="/user/toindex">房间</a></li>
+
+
+            <li class="layui-nav-item fly-layui-user layui-this" id="FLY-notice">
+
+
+                <a class="fly-nav-avatar" href="/user/myInfo" id="LAY_header_avatar">
+                    <img src="/static/hotel/images/head.jpg">
+                    <cite class="layui-hide-xs" th:text="${session.clientUser.clientName}"></cite>
+                </a>
+
+            </li>
+
+            <li class="layui-nav-item layui-hide-xs"><a href="/user/logout">退出</a></li>
+
+
+            <span class="layui-nav-bar" style="left: 560px; top: 55px; width: 0px; opacity: 0;"></span>
+        </ul>
+    </div>
+</div>
+
+<!--[if lt IE 9]>
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+<div class="shop-nav shop-index">
+    <!--<div id="LAY-topbar" style="height: auto;">-->
+        <!--<form action="/hotel/search" method="post">-->
+            <!--<div class="input-search">-->
+                <!--<div><input type="text" placeholder="搜索你需要的房间" name="keywords" autocomplete="off" value="">-->
+                    <!--<button class="layui-btn layui-btn-shop"><i class="layui-icon layui-icon-search"></i></button>-->
+
+                <!--</div>-->
+                <!--<div class="layui-container layui-hide-xs"><a href="https://www.layui.com/" class="topbar-logo"> <img-->
+                        <!--src="/static/hotel/images/logo-1.png" alt="layui"> </a></div>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+    <div class="shop-banner" style="background: #f2f2f2;">
+        <div class="layui-container layui-hide-xs">
+
+            <div class="product-list">
+                <dl>
+                    <dt><a href="/user/myInfo">会员中心</a></dt>
+                    <dd><a href="/user/myInfo">个人信息</a></dd>
+                    <dd class="activate"><a href="/user/myReserve">我的预定</a></dd>
+
+
+                </dl>
+            </div>
+        </div>
+
+
+        <div class="layui-container">
+
+
+            <div class="fly-panel fly-panel-user" pad20="">
+
+                <div class="layui-tab layui-tab-brief" lay-filter="user">
+                    <ul class="layui-tab-title" id="LAY_mine">
+                        <li class="layui-this" lay-id="info">我的预定</li>
+
+                    </ul>
+                    <div class="layui-tab-content" style="padding: 20px 0;    height: 385px;">
+
+                        <table class="layui-hide" id="myReserve" lay-filter="reserveRecordList"></table>
+                        <div class="layui-form layui-border-box layui-table-view" lay-filter="LAY-table-1"
+                             lay-id="myReserve" style=" ">
+                            <div class="layui-table-box">
+                                <div class="layui-table-header">
+                                    <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
+                                        <thead>
+
+                                        </thead>
+                                    </table>
+                                </div>
+
+                                <div class="layui-table-body layui-table-main">
+                                    <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
+                                        <tbody>
+                                        <tr>
+                                            <th data-field="0" data-key="1-0-0" data-unresize="true"
+                                                class=" layui-table-col-special">
+                                                <div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-numbers">
+                                                    <span>序号</span></div>
+                                            </th>
+                                            <th data-field="id" data-key="1-0-1" data-unresize="true"
+                                                class=" layui-unselect">
+                                                <div class="layui-table-cell laytable-cell-1-0-1"><span>ID</span><span
+                                                        class="layui-table-sort layui-inline"><i
+                                                        class="layui-edge layui-table-sort-asc" title="升序"></i><i
+                                                        class="layui-edge layui-table-sort-desc" title="降序"></i></span>
+                                                </div>
+                                            </th>
+                                            <th data-field="roomId" data-key="1-0-2" data-minwidth="120" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-2"><span>房间号</span></div>
+                                            </th>
+                                            <th data-field="roomName" data-key="1-0-3" data-minwidth="120" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-3"><span>房间名称</span>
+                                                </div>
+                                            </th>
+                                            <th data-field="standardPrice" data-key="1-0-4" data-minwidth="120"
+                                                class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-4"><span>房间价格</span>
+                                                </div>
+                                            </th>
+                                            <th data-field="status" data-key="1-0-5" data-unresize="true"
+                                                class=" layui-unselect">
+                                                <div class="layui-table-cell laytable-cell-1-0-5"><span>订单状态</span><span
+                                                        class="layui-table-sort layui-inline"><i
+                                                        class="layui-edge layui-table-sort-asc" title="升序"></i><i
+                                                        class="layui-edge layui-table-sort-desc" title="降序"></i></span>
+                                                </div>
+                                            </th>
+                                            <th data-field="createDate" data-key="1-0-7" data-unresize="true" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-7"><span>下单时间</span>
+                                                </div>
+                                            </th>
+
+                                            <th data-field="createDate" data-key="1-0-8" data-unresize="true" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-8"><span>总付款</span>
+                                                </div>
+                                            </th>
+
+                                            <th data-field="createDate" data-key="1-0-9" data-unresize="true" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-9"><span>押金数</span>
+                                                </div>
+                                            </th>
+                                            <!--<th data-field="createDate" data-key="1-0-10" data-unresize="true" class="">-->
+                                                <!--<div class="layui-table-cell laytable-cell-1-0-10"><span>剩余天数</span>-->
+                                                <!--</div>-->
+                                            <!--</th>-->
+                                            <th data-field="createDate" data-key="1-0-11" data-unresize="true" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-11"><span>追缴押金</span>
+                                                </div>
+                                            </th>
+                                            <th data-field="createDate" data-key="1-0-12" data-unresize="true" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-12"><span>结账</span>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr data-index="1" class="" th:each="cli:${cliList.list}">
+                                            <td data-field="0" data-key="1-0-0" class="layui-table-col-special">
+                                                <div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-numbers">
+                                                    <span th:text="${cli.id}"></span>
+                                                </div>
+                                            </td>
+                                            <td data-field="id" data-key="1-0-1" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-1"><span
+                                                        th:text="${cli.id}"></span></div>
+                                            </td>
+                                            <td data-field="roomId" data-key="1-0-2" data-content="19"
+                                                data-minwidth="120" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-2"><span
+                                                        class="layui-badge layui-bg-green"> <span
+                                                        th:text="${cli.roomId}"></span></span></div>
+                                            </td>
+                                            <td data-field="roomName" data-key="1-0-3" data-content=""
+                                                data-minwidth="120" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-3"><span> <span
+                                                        th:text="${cli.flag5}"></span></span>
+                                                </div>
+                                            </td>
+                                            <td data-field="standardPrice" data-key="1-0-4" data-content=""
+                                                data-minwidth="120" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-4"><span
+                                                        class="layui-badge layui-bg-blue"> <span
+                                                        th:text="${cli.flag4}"></span></span></div>
+                                            </td>
+                                            <td data-field="status" data-key="1-0-5" data-content="3" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-5" ><span th:if="${cli.sign==0}">未结账</span>
+                                                    <span th:if="${cli.sign==1}">已结账</span>
+                                                </div>
+                                            </td>
+                                            <td data-field="status" data-key="1-0-5" data-content="3" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-5" ><span th:text="${cli.flag3}"></span>
+
+                                                </div>
+                                            </td>
+                                            <td data-field="status" data-key="1-0-5" data-content="3" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-5" ><span th:text="${cli.totalprice}">未结账</span>
+
+                                                </div>
+                                            </td>
+                                            <td data-field="status" data-key="1-0-5" data-content="3" class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-5" ><span th:text="${cli.deposi}">未结账</span>
+
+                                                </div>
+                                            </td>
+                                            <!--<td data-field="status" data-key="1-0-5" data-content="3" class="">-->
+                                                <!--<div class="layui-table-cell laytable-cell-1-0-5" ><span th:text="${cli.deposi}">未结账</span>-->
+
+                                                <!--</div>-->
+                                            <!--</td>-->
+                                            <td data-field="createDate" data-key="1-0-5" data-content="1545992730000"
+                                                class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-5">
+                                                    <span><a th:onClick="'javascript:Recover_deposit(\''+${cli.id}+'\');'">追交押金</a></span>
+                                                </div>
+                                            </td>
+                                            <td data-field="createDate" data-key="1-0-5" data-content="1545992730000"
+                                                class="">
+                                                <div class="layui-table-cell laytable-cell-1-0-5">
+                                                    <span><a th:onClick="'javascript:accounts(\''+${cli.id}+'\');'">结账</a></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+
+                                        </tbody>
+
+                                        <script type="text/javascript" src="/static/layui/layui.js"></script>
+                                        <script type="text/javascript" src="/static/js/tools.js"></script>
+                                        <script>
+
+                                            function accounts(item) {
+
+                                                layer.confirm("你确定要结账么？",{btn:['是的,我确定','我再想想']},
+                                                    function(){
+                                                        $.post("/accounts",{"id":item},function (res){
+                                                            if(res.success){
+                                                                layer.msg("结账成功",{time: 1000},function(){
+                                                                   // location.reload();
+                                                                    window.location.href="/user/hotellist"
+                                                                });
+                                                            }else{
+                                                                layer.msg(res.message);
+                                                            }
+
+                                                        });
+                                                    }
+                                                )
+
+                                            }
+
+
+
+                                            function Recover_deposit(item) {
+
+
+                                                layer.confirm("你确定要追缴押金？",{btn:['是的,我确定','我再想想']},
+
+                                                    function () {
+
+                                                        var id = item
+
+
+                                                        var url = "/Recover_deposit"
+
+
+
+                                                        layer.prompt({title:'请输入押金数'},function (val,index) {
+
+
+                                                            $.post(url,{id:id,val:val},function (res) {
+
+                                                                if(res.success){
+                                                                    layer.msg("追加成功",{time: 1000},function(){
+                                                                        location.reload();
+                                                                    });
+                                                                }else{
+                                                                    layer.msg(res.message);
+                                                                }
+                                                            })
+
+                                                        })
+
+
+                                                    }
+
+
+
+                                                )
+
+                                            }
+                                        </script>
+                                    </table>
+                                </div>
+                            </div>
+                            <!--<div class="layui-table-page">-->
+                                <!--<div id="layui-table-page1">-->
+                                    <!--<div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-1"><a-->
+                                            <!--href="javascript:;" class="layui-laypage-prev layui-disabled" data-page="0"><i-->
+                                            <!--class="layui-icon"></i></a><span class="layui-laypage-curr"><em-->
+                                            <!--class="layui-laypage-em"></em><em>1</em></span><a href="javascript:;"-->
+                                                                                              <!--class="layui-laypage-next layui-disabled"-->
+                                                                                              <!--data-page="2"><i-->
+                                            <!--class="layui-icon"></i></a><span class="layui-laypage-skip">到第<input-->
+                                            <!--type="text" min="1" value="1" class="layui-input">页<button type="button"-->
+                                                                                                       <!--class="layui-laypage-btn">确定</button></span><span-->
+                                            <!--class="layui-laypage-count">共 5 条</span><span-->
+                                            <!--class="layui-laypage-limits"><select lay-ignore=""><option value="10"-->
+                                                                                                       <!--selected="">10 条/页</option><option-->
+                                            <!--value="20">20 条/页</option><option value="30">30 条/页</option><option-->
+                                            <!--value="40">40 条/页</option><option value="50">50 条/页</option><option-->
+                                            <!--value="60">60 条/页</option><option value="70">70 条/页</option><option-->
+                                            <!--value="80">80 条/页</option><option value="90">90 条/页</option></select></span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <style>.laytable-cell-1-0-0 {
+                                width: 40px;
+                            }
+
+                            .laytable-cell-1-0-1 {
+                                width: 80px;
+                            }
+
+                            .laytable-cell-1-0-2 {
+                            }
+
+                            .laytable-cell-1-0-3 {
+                            }
+
+                            .laytable-cell-1-0-4 {
+                            }
+
+                            .laytable-cell-1-0-5 {
+                                width: 120px;
+                            }
+
+                            .laytable-cell-1-0-6 {
+                                width: 20%;
+                            }</style>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+<!-- 底部 -->
+<!-- 底部 -->
+<div class="fly-footer" th:fragment="foot" >
+    <p><a href="http://www.lggcmy.cn/">友情连接</a> 2018 © <a href="http://www.lggcmy.cn/">lggcmy.cn</a></p>
+    <p>
+        友情链接
+        <a href="http://java.lggcmy.cn" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/code/list/all/1/20.html" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/market/list/all/1/20.html" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/resumetemplate/list/1/20.html" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/forum/list/0/1/20.html" target="_blank">友情连接</a> </p>
+
+</div>
+<script src="/static/hotel/layui/dist/layui.js"></script>
+<!--<script>-->
+<!--var _hmt = _hmt || [];-->
+<!--(function () {-->
+<!--var hm = document.createElement("script");-->
+<!--hm.src = "https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c";-->
+<!--var s = document.getElementsByTagName("script")[0];-->
+<!--s.parentNode.insertBefore(hm, s);-->
+<!--})();-->
+<!--</script>-->
+<!--<script>-->
+
+<!--layui.cache.user = {-->
+<!--username: '游客',-->
+<!--uid: -1,-->
+<!--avatar: '//res.layui.com/static/images/fly/avatar/default.png',-->
+<!--experience: 0,-->
+<!--sum: 0,-->
+<!--vip: 0,-->
+<!--sex: ''-->
+<!--};-->
+<!--layui.config({-->
+<!--version: "1545301148662"-->
+<!--}).extend({-->
+<!--'fly': '/static/hotel/layui/dist/lay/modules/fly/index'-->
+<!--}).use('fly');-->
+<!--</script>-->
+
+<ul class="layui-fixbar">
+    <li class="layui-icon layui-fixbar-top" lay-type="top" style=""></li>
+</ul>
+
+
+</body>
+</html>

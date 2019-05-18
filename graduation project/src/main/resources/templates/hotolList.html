@@ -1,0 +1,776 @@
+<html class="fly-html-layui fly-html-store" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/static/hotel/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="/static/hotel/css/global.css" charset="utf-8">
+    <link rel="stylesheet" href="/static/hotel/css/global(1).css" charset="utf-8">
+    <link rel="stylesheet" href="/static/hotel/css/store.css" charset="utf-8">
+    <script src="https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c"></script>
+    <script src="/static/hotel/layui/dist/layui.js"></script>
+    <title>首页-酒店管理系统</title>
+    <link id="layuicss-layer" rel="stylesheet"
+          href="http://money.goodym.cn/static/hotel/layui/dist/css/modules/layer/default/layer.css?v=3.1.1" media="all">
+    <link id="layuicss-laydate" rel="stylesheet"
+          href="http://money.goodym.cn/static/hotel/layui/dist/css/modules/laydate/default/laydate.css?v=5.0.9"
+          media="all">
+</head>
+<body>
+
+<div th:replace="common/top::html"></div>
+<!--[if lt IE 9]>
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+<div class="shop-nav shop-index">
+    <div class="shop-banner">
+        <!--<div class="layui-container layui-hide-xs">-->
+            <!--<div class="product-list">-->
+                <!--<dl>-->
+                    <!--<dt><a href="#" target="_blank">房间分类</a></dt>-->
+                    <!--<dd><a href="#" target="_blank">单人间</a></dd>-->
+                    <!--<dd><a href="#" target="_blank">双人间</a></dd>-->
+                    <!--<dd><a href="#" target="_blank">标准间</a></dd>-->
+                    <!--<dd><a href="#" target="_blank">商务间</a></dd>-->
+                    <!--<dd><a href="#" target="_blank">豪华间</a></dd>-->
+                    <!--<dd><a href="#" target="_blank">普通套间</a></dd>-->
+                    <!--<dd><a href="#" target="_blank">总统套间</a></dd>-->
+
+                <!--</dl>-->
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <div class="layui-carousel" lay-filter="LAY-store-banner" id="LAY-store-banner" lay-anim=""
+             lay-indicator="inside" lay-arrow="hover" style="width: 100%; height: 460px;">
+            <div carousel-item="">
+                <div style="background: #0470dd" class="">
+                    <div class="layui-container"><a href="javascript:;" target="_blank"> <img
+                            src="/static/hotel/images/2.jpg" alt="简约家居商城模板"> </a></div>
+                </div>
+                <div style="background: #d3874b" class="">
+                    <div class="layui-container"><a href="javascript:;" target="_blank"> <img
+                            src="/static/hotel/images/3.jpg" alt="极简新闻资讯模板"> </a></div>
+                </div>
+                <div style="background: #d1e7f5" class="">
+                    <div class="layui-container"><a href="javascript:;" target="_blank"> <img
+                            src="/static/hotel/images/4.jpg" alt="静谧风格个人博客模板"> </a></div>
+                </div>
+                <div style="background: #a3c1dd" class="layui-this">
+                    <div class="layui-container"><a href="javascript:;" target="_blank"> <img
+                            src="/static/hotel/images/5.jpg" alt="餐饮企业网站模板"> </a></div>
+                </div>
+                <div style="background: #aa8966" class="">
+                    <div class="layui-container"><a href="javascript:;" target="_blank"> <img
+                            src="/static/hotel/images/1.jpg" alt="母婴商城模板"> </a></div>
+                </div>
+                <div style="background: #cf9c44" class="">
+                    <div class="layui-container"><a href="javascript:;" target="_blank"> <img
+                            src="/static/hotel/images/6.jpg" alt="极简博客模板"> </a></div>
+                </div>
+            </div>
+
+
+            <div class="layui-carousel-ind">
+                <ul>
+                    <li class=""></li>
+                    <li class=""></li>
+                    <li class=""></li>
+                    <li class="layui-this"></li>
+                    <li class=""></li>
+                    <li class=""></li>
+                </ul>
+            </div>
+            <button class="layui-icon layui-carousel-arrow" lay-type="sub"></button>
+            <button class="layui-icon layui-carousel-arrow" lay-type="add"></button>
+        </div>
+    </div>
+</div>
+<div class="shop-temp">
+
+
+    <div class="temp-hot">
+        <div class="layui-container">
+            <p class="temp-title-cn"><span></span>酒店1楼<span></span></p>
+            <div class="layui-row layui-col-space20" >
+                <div class="layui-col-xs6 layui-col-md3" th:each="room,itemStat:${map[roomList0]} "
+                     th:if="${itemStat.count}<=4"><a class="template store-list-box"
+                                                            th:href="@{'/roomdetails?id='+${room.id}}" target="_blank">
+                    <img th:src="${room.image}" class="store-list-cover">
+
+                    <h2 class="layui-elip" th:text="${room.flag4}"></h2>
+                    <p class="price"><span title="金额"> ￥<span th:text="${room.price}"></span></span></p>
+                </a></div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="temp-normal">
+        <div class="layui-container">
+            <p class="temp-title-cn"><span></span> <a href="https://fly.layui.com/store/cat/0/">酒店2楼</a> <span></span>
+            </p>
+            <div class="layui-row layui-col-space20 shoplist">
+                <div th:each="room,itemStat:${map[roomList1]} " th:if="${itemStat.count}<=4"
+                     class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">
+
+                    <a class="template store-list-box" th:href="@{'/roomdetails?id='+${room.id}}" target="center">
+
+                        <img th:src="${room.image}" class="store-list-cover">
+
+                        <h2 class="layui-elip" th:text="${room.flag4}"></h2>
+                        <div><label class="layui-badge-rim store-list-pay"> ￥<label th:text="${room.price}"></label>
+                        </label>
+
+                            <div class="store-list-colorbar" title="预定"><span class="store-color-bar"
+                                                                              style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="temp-hot">
+        <div class="layui-container">
+            <p class="temp-title-cn"><span></span>酒店3楼<span></span></p>
+            <div class="layui-row layui-col-space20" >
+                <div class="layui-col-xs6 layui-col-md3" th:each="room,itemStat:${map[roomList2]} "
+                     th:if="${itemStat.count}<=4"><a class="template store-list-box"
+                                                            th:href="@{'/roomdetails?id='+${room.id}}" target="center">
+                    <img th:src="${room.image}" class="store-list-cover">
+
+                    <h2 class="layui-elip" th:text="${room.flag4}"></h2>
+                    <p class="price"><span title="金额"> ￥<span th:text="${room.price}"></span></span></p>
+                </a></div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="temp-normal">
+        <div class="layui-container">
+            <p class="temp-title-cn"><span></span> <a href="https://fly.layui.com/store/cat/0/">酒店4楼</a> <span></span>
+            </p>
+            <div class="layui-row layui-col-space20 shoplist">
+                <div th:each="room,itemStat:${map[roomList3]} " th:if="${itemStat.count}<=4"
+                     class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">
+
+                    <a class="template store-list-box" th:href="@{'/roomdetails?id='+${room.id}}" target="center">
+
+                        <img th:src="${room.image}" class="store-list-cover">
+
+                        <h2 class="layui-elip" th:text="${room.flag4}"></h2>
+                        <div><label class="layui-badge-rim store-list-pay"> ￥<label th:text="${room.price}"></label>
+                        </label>
+
+                            <div class="store-list-colorbar" title="预定"><span class="store-color-bar"
+                                                                              style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+    <div class="temp-hot">
+        <div class="layui-container">
+            <p class="temp-title-cn"><span></span>酒店五楼<span></span></p>
+            <div class="layui-row layui-col-space20" >
+                <div class="layui-col-xs6 layui-col-md3" th:each="room,itemStat:${map[roomList4]} "
+                     th:if="${itemStat.count}<=4"><a class="template store-list-box"
+                                                     th:href="@{'/roomdetails?id='+${room.id}}" target="center">
+                    <img th:src="${room.image}" class="store-list-cover">
+
+                    <h2 class="layui-elip" th:text="${room.flag4}"></h2>
+                    <p class="price"><span title="金额"> ￥<span th:text="${room.price}"></span></span></p>
+                </a></div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="temp-hot">-->
+        <!--<div class="layui-container">-->
+            <!--<p class="temp-title-cn"><span></span>酒店5楼<span></span></p>-->
+            <!--&lt;!&ndash;<div class="layui-row layui-col-space20" th:each="room,itemStat:${map[roomList4]} "&ndash;&gt;-->
+                 <!--&lt;!&ndash;th:if="${itemStat.count}<=4">&ndash;&gt;-->
+            <!--&lt;!&ndash;    <div class="layui-col-xs6 layui-col-md3" th:each="room,itemStat:${map[roomList4]} "-->
+                     <!--th:if="${itemStat.count}<=4">&ndash;&gt;<a class="template store-list-box"-->
+                                                            <!--th:href="@{'/roomdetails?id='+${room.id}}" target="center">-->
+                    <!--<img th:src="${room.image}" class="store-list-cover">-->
+
+                    <!--<h2 class="layui-elip" th:text="${room.flag4}"></h2>-->
+                    <!--<p class="price"><span title="金额"> ￥<span th:text="${room.price}"></span></span></p>-->
+                <!--</a></div>-->
+
+
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+    </div>
+
+
+    <div class="temp-normal">
+        <div class="layui-container">
+            <p class="temp-title-cn"><span></span> <a href="https://fly.layui.com/store/cat/0/">酒店6楼</a> <span></span>
+            </p>
+            <div class="layui-row layui-col-space20 shoplist">
+                <div th:each="room,itemStat:${map[roomList5]} " th:if="${itemStat.count}<=4"
+                     class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">
+
+                    <a class="template store-list-box" th:href="@{'/roomdetails?id='+${room.id}}" target="center">
+
+                        <img th:src="${room.image}" class="store-list-cover">
+
+                        <h2 class="layui-elip" th:text="${room.flag4}"></h2>
+                        <div><label class="layui-badge-rim store-list-pay"> ￥<label th:text="${room.price}"></label>
+                        </label>
+
+                            <div class="store-list-colorbar" title="预定"><span class="store-color-bar"
+                                                                              style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- 底部 -->
+<!-- 底部 -->
+<div class="fly-footer" th:fragment="foot" >
+    <p><a href="http://www.lggcmy.cn/">友情连接</a> 2018 © <a href="http://www.lggcmy.cn/">lggcmy.cn</a></p>
+    <p>
+        友情链接
+        <a href="http://java.lggcmy.cn" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/code/list/all/1/20.html" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/market/list/all/1/20.html" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/resumetemplate/list/1/20.html" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/forum/list/0/1/20.html" target="_blank">友情连接</a> </p>
+
+</div>
+<script src="/static/hotel/layui/dist/layui.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script>
+    layui.cache.page = 'store';
+    layui.cache.user = {
+        username: '游客',
+        uid: -1,
+        avatar: '//res.layui.com/static/images/fly/avatar/default.png',
+        experience: 0,
+        sum: 0,
+        vip: 0,
+        sex: ''
+    };
+    layui.config({
+        version: "1545301148662"
+    }).extend({
+        'fly': '/static/hotel/layui/dist/lay/modules/fly/index'
+    }).use('fly');
+</script>
+
+<ul class="layui-fixbar">
+    <li class="layui-icon layui-fixbar-top" lay-type="top" style=""></li>
+</ul>
+
+
+</body>
+</html>
+
+<!--<html xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta charset="UTF-8">-->
+<!--<title>Title</title>-->
+
+<!--<link rel="stylesheet" href="/static/css/layui.css">-->
+<!--<link rel="stylesheet" href="/static/css/global.css" charset="utf-8">-->
+<!--<link rel="stylesheet" href="/static/css/global(1).css" charset="utf-8">-->
+<!--<link rel="stylesheet" href="/static/css/store.css" charset="utf-8">-->
+
+<!--<script src="https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c"></script>-->
+<!--<script src="/static/js/layui.js"></script>-->
+<!--<script src="/static/hotel/layui/dist/layui.js"></script>-->
+
+<!--</head>-->
+
+<!--<div class="shop-nav shop-index">-->
+<!--<div id="LAY-topbar" style="height: auto;">-->
+<!--<form action="/hotel/search" method="post">-->
+<!--<div class="input-search">-->
+<!--<div> <input type="text" placeholder="搜索你需要的房间" name="keywords" autocomplete="off" value=""><button class="layui-btn layui-btn-shop"><i class="layui-icon layui-icon-search"></i></button>-->
+
+<!--</div>-->
+<!--<div class="layui-container layui-hide-xs"> <a href="https://www.layui.com/" class="topbar-logo"> <img src="/static/hotel/images/logo-1.png" alt="layui"> </a> </div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>			<div class="shop-banner">-->
+<!--<div class="layui-container layui-hide-xs">-->
+<!--<div class="product-list">-->
+<!--<dl> <dt><a href="/hotel/list/0/0/1/20.html" target="_blank">房间分类</a></dt>-->
+<!--<dd><a href="/hotel/list/1/0/1/20.html" target="_blank">单人间</a></dd>-->
+<!--<dd><a href="/hotel/list/2/0/1/20.html" target="_blank">双人间</a></dd>-->
+<!--<dd><a href="/hotel/list/3/0/1/20.html" target="_blank">标准间</a></dd>-->
+<!--<dd><a href="/hotel/list/4/0/1/20.html" target="_blank">商务间</a></dd>-->
+<!--<dd><a href="/hotel/list/5/0/1/20.html" target="_blank">豪华间</a></dd>-->
+<!--<dd><a href="/hotel/list/6/0/1/20.html" target="_blank">普通套间</a></dd>-->
+<!--<dd><a href="/hotel/list/7/0/1/20.html" target="_blank">总统套间</a></dd>-->
+
+<!--</dl>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="layui-carousel" lay-filter="LAY-store-banner" id="LAY-store-banner" 		 lay-anim="fade" lay-indicator="inside" lay-arrow="hover" style="width: 100%; height: 460px;">-->
+<!--<div carousel-item="">-->
+<!--<div style="background: #0470dd" class="">-->
+<!--<div class="layui-container"> <a href="javascript:;" target="_blank"> <img src="/static/hotel/images/2.jpg" alt="简约家居商城模板"> </a> </div>-->
+<!--</div>-->
+<!--<div style="background: #d3874b" class="layui-this">-->
+<!--<div class="layui-container"> <a href="javascript:;" target="_blank"> <img src="/static/hotel/images/3.jpg" alt="极简新闻资讯模板"> </a> </div>-->
+<!--</div>-->
+<!--<div style="background: #d1e7f5" class="">-->
+<!--<div class="layui-container"> <a href="javascript:;" target="_blank"> <img src="/static/hotel/images/4.jpg" alt="静谧风格个人博客模板"> </a> </div>-->
+<!--</div>-->
+<!--<div style="background: #a3c1dd" class="">-->
+<!--<div class="layui-container"> <a href="javascript:;" target="_blank"> <img src="/static/hotel/images/5.jpg" alt="餐饮企业网站模板"> </a> </div>-->
+<!--</div>-->
+<!--<div style="background: #aa8966" class="">-->
+<!--<div class="layui-container"> <a href="javascript:;" target="_blank"> <img src="/static/hotel/images/1.jpg" alt="母婴商城模板"> </a> </div>-->
+<!--</div>-->
+<!--<div style="background: #cf9c44" class="">-->
+<!--<div class="layui-container"> <a href="javascript:;" target="_blank"> <img src="/static/hotel/images/6.jpg" alt="极简博客模板"> </a> </div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="layui-carousel-ind"><ul><li class=""></li><li class="layui-this"></li><li class=""></li><li class=""></li><li class=""></li><li class=""></li></ul></div><button class="layui-icon layui-carousel-arrow" lay-type="sub"></button><button class="layui-icon layui-carousel-arrow" lay-type="add"></button></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<br>-->
+<!--<br>-->
+<!--<div class="temp-normal">-->
+<!--<div class="layui-container">-->
+<!--<p class="temp-title-cn"><span></span> <a href="https://fly.layui.com/store/cat/0/">酒店1楼</a> <span></span></p>-->
+<!--<div class="layui-row layui-col-space20 shoplist">-->
+
+
+<!--<div th:each="room,itemStat:${map[roomList1]} " th:if="${itemStat.count}<=4"-->
+<!--class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">-->
+
+<!--<a class="template store-list-box" href="/hotel/details/2.html" target="_blank">-->
+
+<!--<img th:src="${room.image}" class="store-list-cover">-->
+
+<!--<h2 class="layui-elip">经济舒适单人间</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥<label th:text="${room.price}"></label>-->
+<!--</label>-->
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+
+<!--<br>-->
+
+
+<!--<div class="temp-normal">-->
+<!--<div class="layui-container">-->
+<!--<p class="temp-title-cn"><span></span> <a href="https://fly.layui.com/store/cat/0/">酒店2楼</a> <span></span></p>-->
+<!--<div class="layui-row layui-col-space20 shoplist">-->
+
+
+<!--<div th:each="room,itemStat:${map[roomList1]} " th:if="${itemStat.count}<=4"-->
+<!--class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">-->
+
+<!--<a class="template store-list-box" th:href="@{'/roomdetails?id='+${room.id}}" target="center">-->
+
+<!--<img th:src="${room.image}" class="store-list-cover">-->
+
+<!--<h2 class="layui-elip" th:text="${room.flag4}"></h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥<label th:text="${room.price}"></label>-->
+<!--</label>-->
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+
+<!--<br>-->
+<!--<div class="temp-normal">-->
+<!--<div class="layui-container">-->
+<!--<p class="temp-title-cn"><span></span> <a href="https://fly.layui.com/store/cat/0/">酒店2楼</a> <span></span></p>-->
+<!--<div class="layui-row layui-col-space20 shoplist">-->
+
+
+<!--<div th:each="room,itemStat:${map[roomList1]} " th:if="${itemStat.count}<=4"-->
+<!--class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">-->
+
+<!--<a class="template store-list-box" href="/hotel/details/2.html" target="_blank">-->
+
+<!--<img th:src="${room.image}" class="store-list-cover">-->
+
+<!--<h2 class="layui-elip">经济舒适单人间</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥<label th:text="${room.price}"></label>-->
+<!--</label>-->
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/8.html"-->
+<!--target="_blank">-->
+<!--<img src="/static/picture/47e28094-4ebf-40b3-9ea3-55f77c71c865_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip">商务双床房</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥399 </label>-->
+
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/14.html"-->
+<!--target="_blank">-->
+<!--<img src="/static/picture/acfae30b-e1d6-4d94-b7d4-fccba740fe62_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip">普通标准间</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥299 </label>-->
+
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/20.html"-->
+<!--target="_blank">-->
+<!--<img src="/static/picture/7e45a065-8ffa-4044-9ff4-4eeba5d4c6a4_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip"></h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥499 </label>-->
+
+<!--<div class="store-list-colorbar" title="空闲"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">空闲</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--<br>-->
+<!--<div class="temp-normal">-->
+<!--<div class="layui-container">-->
+<!--<p class="temp-title-cn"><span></span> <a href="https://fly.layui.com/store/cat/0/">酒店2楼</a> <span></span></p>-->
+<!--<div class="layui-row layui-col-space20 shoplist">-->
+
+
+<!--<div th:each="room,itemStat:${map[roomList1]} " th:if="${itemStat.count}<=4"-->
+<!--class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">-->
+
+<!--<a class="template store-list-box" href="/hotel/details/2.html" target="_blank">-->
+
+<!--<img th:src="${room.image}" class="store-list-cover">-->
+
+<!--<h2 class="layui-elip">经济舒适单人间</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥<label th:text="${room.price}"></label>-->
+<!--</label>-->
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/8.html"-->
+<!--target="_blank">-->
+<!--<img src="static/picture/47e28094-4ebf-40b3-9ea3-55f77c71c865_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip">商务双床房</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥399 </label>-->
+
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/14.html"-->
+<!--target="_blank">-->
+<!--<img src="static/picture/acfae30b-e1d6-4d94-b7d4-fccba740fe62_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip">普通标准间</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥299 </label>-->
+
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/20.html"-->
+<!--target="_blank">-->
+<!--<img src="static/picture/7e45a065-8ffa-4044-9ff4-4eeba5d4c6a4_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip"></h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥499 </label>-->
+
+<!--<div class="store-list-colorbar" title="空闲"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">空闲</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--<br>-->
+<!--<div class="temp-normal">-->
+<!--<div class="layui-container">-->
+<!--<p class="temp-title-cn"><span></span> <a href="https://fly.layui.com/store/cat/0/">酒店2楼</a> <span></span></p>-->
+<!--<div class="layui-row layui-col-space20 shoplist">-->
+
+
+<!--<div th:each="room,itemStat:${map[roomList1]} " th:if="${itemStat.count}<=4"-->
+<!--class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">-->
+
+<!--<a class="template store-list-box" href="/hotel/details/2.html" target="_blank">-->
+
+<!--<img th:src="${room.image}" class="store-list-cover">-->
+
+<!--<h2 class="layui-elip">经济舒适单人间</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥<label th:text="${room.price}"></label>-->
+<!--</label>-->
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/8.html"-->
+<!--target="_blank">-->
+<!--<img src="static/picture/47e28094-4ebf-40b3-9ea3-55f77c71c865_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip">商务双床房</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥399 </label>-->
+
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/14.html"-->
+<!--target="_blank">-->
+<!--<img src="static/picture/acfae30b-e1d6-4d94-b7d4-fccba740fe62_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip">普通标准间</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥299 </label>-->
+
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/20.html"-->
+<!--target="_blank">-->
+<!--<img src="static/picture/7e45a065-8ffa-4044-9ff4-4eeba5d4c6a4_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip"></h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥499 </label>-->
+
+<!--<div class="store-list-colorbar" title="空闲"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">空闲</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--<br>-->
+<!--<div class="temp-normal">-->
+<!--<div class="layui-container">-->
+<!--<p class="temp-title-cn"><span></span> <a href="https://fly.layui.com/store/cat/0/">酒店2楼</a> <span></span></p>-->
+<!--<div class="layui-row layui-col-space20 shoplist">-->
+
+
+<!--<div th:each="room,itemStat:${map[roomList1]} " th:if="${itemStat.count}<=4"-->
+<!--class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3">-->
+
+<!--<a class="template store-list-box" href="/hotel/details/2.html" target="_blank">-->
+
+<!--<img th:src="${room.image}" class="store-list-cover">-->
+
+<!--<h2 class="layui-elip">经济舒适单人间</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥<label th:text="${room.price}"></label>-->
+<!--</label>-->
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/8.html"-->
+<!--target="_blank">-->
+<!--<img src="static/picture/47e28094-4ebf-40b3-9ea3-55f77c71c865_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip">商务双床房</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥399 </label>-->
+
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/14.html"-->
+<!--target="_blank">-->
+<!--<img src="static/picture/acfae30b-e1d6-4d94-b7d4-fccba740fe62_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip">普通标准间</h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥299 </label>-->
+
+
+<!--<div class="store-list-colorbar" title="预定"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">预定</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+<!--<div class="layui-col-xs12 layui-col-sm6 layui-col-md4 layui-col-lg3"><a class="template store-list-box"-->
+<!--href="/hotel/details/20.html"-->
+<!--target="_blank">-->
+<!--<img src="static/picture/7e45a065-8ffa-4044-9ff4-4eeba5d4c6a4_1.jpg" class="store-list-cover">-->
+<!--<h2 class="layui-elip"></h2>-->
+<!--<div><label class="layui-badge-rim store-list-pay"> ￥499 </label>-->
+
+<!--<div class="store-list-colorbar" title="空闲"><span class="store-color-bar"-->
+<!--style="color:  #fff;background: #cc9812;padding: 3px;text-align: center;">空闲</span>-->
+<!--</div>-->
+
+
+<!--</div>-->
+<!--</a></div>-->
+
+
+<!--</div>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--<br>-->
+
+
+<!--</div>-->
+<!--</html>-->
+
+<!--<script>-->
+
+<!--$(document).ready(function () {-->
+<!--var srcBgArray = ["/static/images/1.jpg",-->
+<!--"/static/images/2.jpg",-->
+<!--"/static/images/3.jpg",-->
+<!--"/static/images/4.jpg"];-->
+<!--$('#bg-body').bcatBGSwitcher({-->
+<!--timeout: 5000,-->
+<!--urls: srcBgArray,-->
+<!--alt: 'Full screen background image'-->
+<!--});-->
+<!--});-->
+<!--</script>-->
+
+<!--<script src="/static/js/layui.js"></script>-->

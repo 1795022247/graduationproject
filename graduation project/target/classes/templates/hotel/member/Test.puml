@@ -1,0 +1,24 @@
+@startuml
+
+start
+
+while (data available?)
+  :read data;
+  :generate diagrams;
+endwhile
+
+stop
+
+@enduml
+
+'@startuml
+'(*)  --> "check input"
+'If "input is verbose" then
+'--> [Yes] "turn on verbosity"
+'--> "run command"
+'else
+'--> "run command"
+'Endif
+'-->(*)
+'@enduml
+

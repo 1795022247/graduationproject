@@ -1,0 +1,73 @@
+server:
+  port: 8050
+
+
+
+
+spring:
+  thymeleaf:
+    suffix: .html
+    cache: false
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    mode: LEGACYHTML5
+    servlet:
+      content-type: text/html
+#  session:
+#    store-type: redis
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+#    database: 4
+
+
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    #url: jdbc:mysql://119.29.230.78:3306/hotolmanager?useUnicode=true&characterEncoding=utf8&useSSL=false
+    #password: qbd2017+-*/
+    url: jdbc:mysql://localhost:3306/hotolmanager
+    password:
+    sql-script-encoding: utf-8
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+#redis:
+#  database: 0
+#  host: 127.0.0.1
+#  port: 6379
+#  password:
+#  pool:
+#    max-active: 8
+#    max-wait: 1
+#    max-idel: 8
+#    min-idel: 0
+#  timeout: 3000
+
+fdfs:
+  soTimeout: 1501
+  connectTimeout: 601
+  thumbImage:
+    width: 150
+    height: 150
+  trackerList:
+  - 119.29.230.78:22122
+#    - 192.168.1.215:22122
+spring.jmx.enabled: false
+
+file.path.head: http://119.29.230.78:9999/
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  config-location: classpath:/mybatis-config.xml

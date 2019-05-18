@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>商品类别--酒店管理系统网站</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all">
+    <link rel="stylesheet" href="/static/css/user.css" media="all">
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.rotate.min.js"></script>
+    <link id="layuicss-layer" rel="stylesheet" href="/static/layui/css/modules/layer/default/layer.css" media="all">
+    <link id="layuicss-laydate" rel="stylesheet"
+          href="/static/layui/css/modules/laydate/default/laydate.css?v=5.0.9" media="all">
+</head>
+<body class="childrenBody">
+<fieldset class="layui-elem-field">
+    <legend>酒店房间检索</legend>
+    <div class="layui-field-box">
+        <form class="layui-form"  action="/findByLikeRoom" id="searchForm">
+
+            <div class="layui-inline">
+                <a class="layui-btn layui-btn-normal" onclick="">添加商品类别</a>
+            </div>
+        </form>
+    </div>
+</fieldset>
+<div class="layui-form users_list">
+    <table class="layui-table" id="test" lay-filter="demo"></table>
+    <div class="layui-form layui-border-box layui-table-view" lay-filter="LAY-table-1" style=" ">
+        <div class="layui-table-box">
+            <div class="layui-table-header">
+                <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
+                    <thead>
+                    <tr>
+                        <th data-field="0" data-unresize="true">
+                            <div class="layui-table-cell laytable-cell-1-0 laytable-cell-checkbox"><input
+                                    type="checkbox" name="layTableCheckbox" lay-skin="primary"
+                                    lay-filter="layTableAllChoose">
+                                <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i
+                                        class="layui-icon"></i></div>
+                            </div>
+                        </th>
+                        <th data-field="1" data-unresize="true">
+                            <div class="layui-table-cell laytable-cell-1-1 laytable-cell-numbers"><span>序号</span></div>
+                        </th>
+                        <th data-field="coverImg">
+                            <div class="layui-table-cell laytable-cell-1-coverImg"><span>类别</span></div>
+                        </th>
+                        <th data-field="roomName">
+                            <div class="layui-table-cell laytable-cell-1-roomName"><span>商品类别名称</span></div>
+                        </th>
+                        <!--<th data-field="roomNumber">-->
+                            <!--<div class="layui-table-cell laytable-cell-1-roomNumber"><span>创建时间</span></div>-->
+                        <!--</th>-->
+
+
+                        <th data-field="14">
+                            <div class="layui-table-cell laytable-cell-1-14" align="center"><span>操作</span></div>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="layui-table-body layui-table-main">
+                <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
+                    <tbody>
+
+                    <tr th:each="goods : ${goodsTypeList}" data-index="0" class="">
+                        <td data-field="0">
+
+                            <div class="layui-table-cell laytable-cell-1-0 laytable-cell-checkbox"><input
+                                    type="checkbox" name="layTableCheckbox" lay-skin="primary">
+                                <div class="layui-unselect layui-form-checkbox" lay-skin="primary"><i
+                                        class="layui-icon"></i></div>
+
+                            </div>
+
+
+                        </td>
+                        <td data-field="1">
+                            <div class="layui-table-cell laytable-cell-1-1 laytable-cell-numbers">1</div>
+                        </td>
+
+                        <td data-field="roomName">
+                            <div class="layui-table-cell laytable-cell-1-roomName"><span
+                                    th:text="${goods.id}"></span></div>
+                        </td>
+                        <td data-field="roomNumber">
+                            <div class="layui-table-cell laytable-cell-1-roomNumber"><span
+                                    th:text="${goods.typeNmae}"></span></div>
+                        </td>
+
+
+                        <!--<td data-field="createDate" data-content="1545526842000">-->
+                            <!--<div class="layui-table-cell laytable-cell-1-createDate"><span   th:text="${goods.typeName}"></span></div>-->
+                        <!--</td>-->
+                        <td data-field="14" data-off="true" align="center" width="200px">
+                            <div class="layui-table-cell laytable-cell-1-0-6">
+                                <span><a th:onClick="'javascript:Recover_deposit(\''+${goods.id}+'\');'">修改</a></span>
+                            </div>
+
+                        </td>
+
+                        <td data-field="14" data-off="true" align="center" width="200px">
+
+                            <div class="layui-table-cell laytable-cell-1-0-6">
+                                <span><a th:onClick="'javascript:dels(\''+${goods.id}+'\');'">删除</a></span>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+<!--            <div class="layui-table-page">
+                <div id="layui-table-page1">
+                    <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-1"><span
+                            class="layui-laypage-limits"><select lay-ignore=""><option value="3">3 条/页</option><option
+                            value="10" selected="">10 条/页</option><option value="20">20 条/页</option><option value="30">30 条/页</option></select></span><span
+                            class="layui-laypage-count">共 24 条</span><a href="javascript:;"
+                                                                        class="layui-laypage-prev layui-disabled"
+                                                                        data-page="0"><i
+                            class="layui-icon"></i></a><span
+                            class="layui-laypage-curr"><em class="layui-laypage-em"></em><em>1</em></span><a
+                            href="javascript:;" data-page="2">2</a><a href="javascript:;" class="layui-laypage-last"
+                                                                      title="尾页" data-page="3">尾页</a><a
+                            href="javascript:;"
+                            class="layui-laypage-next"
+                            data-page="2"><i
+                            class="layui-icon"></i></a><span class="layui-laypage-skip">到第<input type="text" min="1"
+                                                                                                  value="1"
+                                                                                                  class="layui-input">页<button
+                            type="button" class="layui-laypage-btn">确定</button></span></div>
+                </div>
+            </div>-->
+            <style>.laytable-cell-1-0 {
+                width: 48px;
+            }
+
+            .laytable-cell-1-1 {
+                width: 100px;
+            }
+
+            .laytable-cell-1-coverImg {
+                width: 150px;
+            }
+
+            .laytable-cell-1-roomName {
+                width: 150px;
+            }
+
+            .laytable-cell-1-roomNumber {
+                width: 150px;
+            }
+
+            .laytable-cell-1-bedType {
+                width: 80px;
+            }
+
+            .laytable-cell-1-broadband {
+                width: 80px;
+            }
+
+            .laytable-cell-1-standardPrice {
+                width: 80px;
+            }
+
+            .laytable-cell-1-memberPrice {
+                width: 80px;
+            }
+
+            .laytable-cell-1-roomStatus {
+                width: 80px;
+            }
+
+            .laytable-cell-1-roomTypeId {
+                width: 80px;
+            }
+
+            .laytable-cell-1-floorId {
+                width: 80px;
+            }
+
+            .laytable-cell-1-delFlag {
+                width: 163px;
+            }
+
+            .laytable-cell-1-createDate {
+                width: 204px;
+            }
+
+            .laytable-cell-1-14 {
+                width: 204px;
+            }</style>
+        </div>
+
+    </div>
+    <div id="page"></div>
+    <script type="text/javascript" src="/static/layui/layui.js"></script>
+    <script type="text/javascript" src="/static/js/tools.js"></script>
+
+    <script>
+
+        function dels(item) {
+
+            layer.confirm("你确定删除么？",{btn:['是的,我确定','我再想想']},
+                function(){
+                    $.post("/accounts",{"id":item},function (res){
+                        if(res.success){
+                            layer.msg("删除成功",{time: 1000},function(){
+                                location.reload();
+                            });
+                        }else{
+                            layer.msg(res.message);
+                        }
+
+                    });
+                }
+            )
+
+        }
+
+
+
+        function Recover_deposit(item) {
+
+            layer.confirm("你确定要修改么？",{btn:['是的,我确定','我再想想']},
+
+                function delsc(item) {
+
+                    var id = item
+
+                    var url = "/Recover_deposit"
+
+
+
+                    layer.prompt({title:'请输类别名字'},function (val,index) {
+
+
+                        $.post(url,{id:id,val:val},function (res) {
+
+                            if(res.success){
+                                layer.msg("修改成功",{time: 1000},function(){
+                                    location.reload();
+                                });
+                            }else{
+                                layer.msg(res.message);
+                            }
+                        })
+
+                    })
+
+
+                }
+
+
+
+            )
+
+        }
+
+    </script>
+
+
+
+</div>
+
+</body>
+</html>

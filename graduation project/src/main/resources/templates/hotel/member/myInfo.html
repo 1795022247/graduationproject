@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="fly-html-layui fly-html-store" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/static/hotel/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="/static/hotel/css/global.css" charset="utf-8">
+    <link rel="stylesheet" href="/static/hotel/css/global(1).css" charset="utf-8">
+    <link rel="stylesheet" href="/static/hotel/css/store.css" charset="utf-8">
+    <!--<script src="https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c"></script>-->
+
+    <script type="text/javascript" src="/static/hotel/layui/dist/layui.js"></script>
+
+    <script type="text/javascript" src="/static/js/jquery-1.8.3.js"></script>
+
+
+
+
+
+
+    <title>个人信息-酒店管理系统</title>
+    <!--<link id="layuicss-layer" rel="stylesheet"-->
+          <!--href="static/hotel/layui/dist/css/modules/layer/default/layer.css?v=3.1.1" media="all">-->
+    <!--<link id="layuicss-laydate" rel="stylesheet"-->
+          <!--href="/static/hotel/layui/dist/css/modules/laydate/default/laydate.css?v=5.0.9"-->
+          <!--media="all">-->
+</head>
+<body>
+<div class="layui-header header header-store" style="background-color: #083a6d;">
+    <div class="layui-container"><a class="logo" href="#"> <img src="/static/hotel/images/logo.png"
+                                                                                alt="layui">
+    </a>
+        <div class="layui-form component" lay-filter="LAY-site-header-component"></div>
+        <ul class="layui-nav">
+            <li class="layui-nav-item layui-hide-xs"><a href="/user/toindex">首页</a></li>
+
+            <li class="layui-nav-item layui-hide-xs"><a href="/user/toindex">房间</a></li>
+
+
+            <li class="layui-nav-item fly-layui-user layui-this" id="FLY-notice">
+
+
+                <a class="fly-nav-avatar" href="/user/myInfo" id="LAY_header_avatar">
+                    <img src="/static/hotel/images/head.jpg">
+                    <cite class="layui-hide-xs" th:text="${session.clientUser.clientName}"></cite>
+                </a>
+
+            </li>
+
+            <li class="layui-nav-item layui-hide-xs"><a href="/user/logout">退出</a></li>
+
+
+            <span class="layui-nav-bar" style="left: 560px; top: 55px; width: 0px; opacity: 0;"></span>
+        </ul>
+    </div>
+</div>
+
+<!--[if lt IE 9]>
+<!--<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>-->
+<!--<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]&ndash;&gt;-->
+<div class="shop-nav shop-index">
+    <!--<div id="LAY-topbar" style="height: auto;">-->
+        <!--<form action="/hotel/search" method="post">-->
+            <!--<div class="input-search">-->
+                <!--<div><input type="text" placeholder="搜索你需要的房间" name="keywords" autocomplete="off" value="">-->
+                    <!--<button class="layui-btn layui-btn-shop"><i class="layui-icon layui-icon-search"></i></button>-->
+
+                <!--</div>-->
+                <!--<div class="layui-container layui-hide-xs"><a href="https://www.layui.com/" class="topbar-logo"> <img-->
+                        <!--src="/static/hotel/images/logo-1.png" alt="layui"> </a></div>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+    <div class="shop-banner" style="background: #f2f2f2;">
+        <div class="layui-container layui-hide-xs">
+            <div class="product-list">
+                <dl>
+                    <dt><a href="/user/myInfo">会员中心</a></dt>
+                    <dd><a href="/user/myInfo">个人信息</a></dd>
+                    <dd class="activate"><a href="/user/myReserve">我的预定</a></dd>
+
+                </dl>
+            </div>
+        </div>
+
+
+        <div class="layui-container">
+
+
+            <div class="fly-panel fly-panel-user" pad20="">
+                <div class="layui-tab layui-tab-brief" lay-filter="user">
+                    <ul class="layui-tab-title" id="LAY_mine">
+                        <li class="layui-this" lay-id="info">我的资料</li>
+
+                        <li lay-id="pass">密码</li>
+
+                    </ul>
+                    <div class="layui-tab-content" style="padding: 20px 0;">
+                        <div class="layui-form layui-form-pane layui-tab-item layui-show">
+                            <form id="writeForm" action="/user/upmyInfo" method="post">
+                                <div class="layui-form-item">
+                                    <label for="L_email" class="layui-form-label">手机</label>
+                                    <div class="layui-input-inline">
+                                        <input type="hidden" name="id" th:value="${clientUser.id}">
+                                        <input type="text" id="L_phone" name="phone" required="" lay-verify="phone"
+                                               autocomplete="off" th:value="${clientUser.phone}" placeholder="请输入手机号"
+                                               class="layui-input">
+                                    </div>
+                                </div>
+
+
+                                <div class="layui-form-item">
+                                    <label for="L_email" class="layui-form-label">邮箱</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="L_email" name="email" required="" lay-verify="email"
+                                               autocomplete="off" th:value="${clientUser.email}" class="layui-input">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="layui-form-item">
+                                    <label for="L_city" class="layui-form-label">姓名</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="L_city" name="clientName" autocomplete="off" th:value="${clientUser.clientName}"
+                                               class="layui-input">
+                                    </div>
+                                </div>
+
+
+                                <div class="layui-form-item">
+                                    <label for="L_username" class="layui-form-label">身份证编号</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="L_username" name="icCard" required=""
+                                               lay-verify="required" autocomplete="off"  th:value="${clientUser.icCard}"   class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item">
+                                    <label for="L_username" class="layui-form-label">地址</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="L_usernames" name="address" required=""
+                                               lay-verify="required" autocomplete="off"  th:value="${clientUser.address}"   class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label for="L_username" class="layui-form-label">性别</label>
+                                    <!--<div class="layui-input-inline">-->
+                                        <!--&lt;!&ndash;<input type="text" id="L_usernamed" name="sex" required=""&ndash;&gt;-->
+                                               <!--&lt;!&ndash;lay-verify="required" autocomplete="off"  th:value="${clientUser.sex}"   class="layui-input">&ndash;&gt;-->
+                                    <!--</div>-->
+                                    <div class="layui-input-inline">
+
+                                        <select name="sex" th:value="${clientUser.sex}">
+                                            <p th:if="${clientUser.sex}==0" >
+                                            <option value="0" th:if="${clientUser.sex}==0" th:selected="selected">男</option>
+                                            <option value="1">女</option>
+                                            </p>
+                                            <p th:if="${clientUser.sex}==1">
+                                            <option value="1" th:if="${clientUser.sex}==1" th:selected="selected">女</option>
+                                            <option value="0"  >男</option>
+                                            </p>
+
+                                        </select>
+
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="layui-form-item">
+                                    <button class="layui-btn" key="set-mine" lay-submit=""
+                                          type="submit">确认修改
+
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <script type="text/javascript" src="/static/layui/layui.js"></script>
+
+
+
+
+
+
+                        <div class="layui-form-pane layui-tab-item">
+                            <form id="writeForms" action="/user/upmyInfo" method="post">
+                            <div class="layui-form-item">
+                                <label  class="layui-form-label" >新密码</label>
+                                <div class="layui-input-inline">
+                                    <input type="password" name="password" required="" lay-verify="required"
+                                           autocomplete="off" class="layui-input">
+                                    <input type="hidden" name="id" required="" lay-verify="required"
+                                        th:value="${clientUser.id}"   autocomplete="off" class="layui-input">
+                                </div>
+
+                            </div>
+                            <div class="layui-form-item">
+                                <label for="L_repass" class="layui-form-label">确认密码</label>
+                                <div class="layui-input-inline">
+                                    <input type="password" id="L_repass" name="repass" required="" lay-verify="required"
+                                           autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-form-item">
+                                <!--<button class="layui-btn"-->
+                                        <!--onclick="update()">确认修改-->
+                                <!--</button>-->
+                                <button type="submit" class="layui-btn"></button>
+                            </div>
+
+                            </form>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+<script>
+    layui.use(['form','jquery','layer','upload'],function() {
+        var form = layui.form,
+            $ = layui.jquery,
+
+            upload = layui.upload,
+            E = window.wangEditor,
+            layer = layui.layer;
+
+        function update() {
+
+
+            $.ajax({
+                //几个参数需要注意一下
+                type: "POST",//方法类型
+                url: "/user/upmyInfo" ,//url
+                data: $('#writeForms').serialize(),
+                success: function (result) {
+
+
+                    if (result == "200") {
+                        alert("修改成功");
+                    }
+                    ;
+                },
+                error : function() {
+
+                    alert('修改失败！');
+                }
+            });
+
+        }
+        function updateMember() {
+
+
+            $.ajax({
+                //几个参数需要注意一下
+                type: "POST",//方法类型
+
+                url: "/user/upmyInfo",//url
+                data: $('#writeForm').serialize(),
+                success: function (result) {
+
+
+                    if (result == "200") {
+                        alert("修改成功");
+                    }
+                    ;
+                },
+                error: function () {
+
+                    alert('修改失败！');
+                }
+            });
+        }
+    });
+
+</script>
+
+<!-- 底部 -->
+<!-- 底部 -->
+<div class="fly-footer" th:fragment="foot" >
+    <p><a href="http://www.lggcmy.cn/">友情连接</a> 2018 © <a href="http://www.lggcmy.cn/">lggcmy.cn</a></p>
+    <p>
+        友情链接
+        <a href="http://java.lggcmy.cn" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/code/list/all/1/20.html" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/market/list/all/1/20.html" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/resumetemplate/list/1/20.html" target="_blank">友情连接</a>
+        <a href="http://www.lggcmy.cn/forum/list/0/1/20.html" target="_blank">友情连接</a> </p>
+
+</div>
+<script src="/static/hotel/layui/dist/layui.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+<script>
+    layui.cache.page = 'store';
+    layui.cache.user = {
+        username: '游客',
+        uid: -1,
+        avatar: '//res.layui.com/static/images/fly/avatar/default.png',
+        experience: 0,
+        sum: 0,
+        vip: 0,
+        sex: ''
+    };
+    layui.config({
+        version: "1545301148662"
+    }).extend({
+        'fly': '/static/hotel/layui/dist/lay/modules/fly/index'
+    }).use('fly');
+</script>
+
+<ul class="layui-fixbar">
+    <li class="layui-icon layui-fixbar-top" lay-type="top" style=""></li>
+</ul>
+
+
+</body>
+</html>

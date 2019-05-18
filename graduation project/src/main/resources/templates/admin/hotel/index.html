@@ -1,0 +1,228 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>酒店后台管理</title>
+    <meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/static/css/font.css">
+    <link rel="stylesheet" href="/static/css/xadmin.css">
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script src="/static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/xadmin.js"></script>
+</head>
+
+<body>
+<!-- 顶部开始 -->
+<div class="container">
+    <div class="logo"><a href="./index.html">酒店后台管理</a></div>
+    <div class="left_open">
+        <i title="展开左侧栏" class="iconfont">&#xe699;</i>
+    </div>
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item">
+
+            <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                <dd><a href="/logout">退出</a></dd>
+                <dd><a onclick="x_admin_see(' ','/kinder/seeNotice',1000,400)" href="javascript:;">消息通知</a></dd>
+                <dd><a onclick="modifyPassword()">修改密码</a></dd>
+            </dl>
+        </li>
+    </ul>
+
+</div>
+
+<div class="left-nav">
+    <div id="side-nav">
+        <ul id="nav">
+            <li>
+                <a href="javascript:;">
+                    <i class="layui-icon layui-icon-tree"></i>
+                    <cite>用户管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="/backuserlist">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>客户管理</cite>
+                        </a>
+                    </li >
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="iconfont">&#xe6b2;</i>
+                    <cite>客房管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="/backorderlists">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>客房预订管理</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="/backroomlist">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>房间管理</cite>
+                        </a>
+                    </li >
+                    <li>
+                        <a _href="/backorderruzhu">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>预定转入住管理</cite>
+                        </a>
+                    </li >
+
+
+
+
+
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript:;">
+                    <i class="layui-icon layui-icon-user"></i>
+                    <cite>基础信息管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <!--<li>-->
+                        <!--<a _href="">-->
+                            <!--<i class="iconfont">&#xe6a7;</i>-->
+                            <!--<cite>客房类型管理</cite>-->
+                        <!--</a>-->
+                    <!--</li >-->
+                    <!--<li>-->
+                        <!--<a _href="/findByLikeGoodsType">-->
+                            <!--<i class="iconfont">&#xe6a7;</i>-->
+                            <!--<cite>商品类别管理</cite>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <li>
+                        <a _href="/backGoodslist">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>商品管理</cite>
+                        </a>
+
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="layui-icon layui-icon-user"></i>
+                    <cite>结账管理</cite>
+                    <i class="iconfont nav_right">&#xe697;</i>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a _href="/backorderstatus">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>结账管理</cite>
+                        </a>
+                    </li >
+
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- 左侧菜单结束 -->
+<!-- 右侧主体开始 -->
+<div class="page-content">
+    <div class="layui-tab tab" lay-filter="xbs_tab" lay-allowclose="false">
+        <ul class="layui-tab-title">
+            <li class="home"><i class="layui-icon">&#xe68e;</i>首页(上传资料)</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <!--<iframe src='/kinder/schoolManageUpload.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>-->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 右侧主体结束 -->
+<!-- 中部结束 -->
+<div class="layui-form" style="display:none;padding:30px;margin-left:-50px;" id="modify">
+
+    <div id="change_pwd">
+        <div class="layui-form-item">
+            <label class="layui-form-label">新密码</label>
+            <div class="layui-input-block">
+                <input type="password" id="newpassword" lay-verify="required" placeholder="请输入新密码" onblur="pwd_check(this.value)" autocomplete="off" class="layui-input" />
+
+            </div>
+
+        </div>
+        <label class="layui-form-label">确认密码</label>
+        <div class="layui-input-block">
+            <input type="password" id="renewpassword" lay-verify="required" placeholder="请确认新密码" onblur="pwd_check(this.value)" autocomplete="off" class="layui-input" />
+            <span id="msg" style="color: red;padding-top:20px;"></span>
+        </div>
+
+        <div class="layui-form-item">
+            <div class="layui-input-block" style="text-align: center;margin-top:15px">
+                <button class="layui-btn" onclick="send_pwd()" style="width:20%;">提交</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    $(function () {
+        //防止页面后退
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+    })
+    function  modifyPassword(){
+        layui.use('layer', function () {
+            var $ = layui.jquery;
+            layer.open({
+                type: 1,
+                closeBtn: 1,
+                title: '修改密码',
+                offset: ['120px', '450px'],
+                area: ['660px', '325px'],
+                shadeClose: true,
+                content: $("#modify")
+            });
+        });
+    }
+    function pwd_check(str) {
+        var patten=/^[a-zA-Z0-9]{5,12}$/;
+        if(!patten.test(str)){
+
+            document.getElementById('msg').innerHTML='密码为5至12数字或字母';
+            return false;
+        }else{
+            document.getElementById('msg').innerHTML='';
+        }
+
+    }
+    function send_pwd() {
+        var pwd1=$('#newpassword').val();
+        var pwd2=$('#renewpassword').val();
+        if(pwd1!=pwd2){
+            alert('两次输入密码不一致!');
+            $('#newpassword').val('');
+            $('#renewpassword').val('');
+            return false;
+        }
+    }
+</script>
+</body>
+</html>
+
+

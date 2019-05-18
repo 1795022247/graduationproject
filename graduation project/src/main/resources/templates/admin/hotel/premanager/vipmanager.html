@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>酒店房间--酒店管理系统网站</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all">
+    <link rel="stylesheet" href="/static/css/user.css" media="all">
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.rotate.min.js"></script>
+    <link id="layuicss-layer" rel="stylesheet" href="/static/layui/css/modules/layer/default/layer.css" media="all">
+    <link id="layuicss-laydate" rel="stylesheet"
+          href="/static/layui/css/modules/laydate/default/laydate.css?v=5.0.9" media="all">
+</head>
+<body class="childrenBody">
+<fieldset class="layui-elem-field">
+    <legend>酒店客户检索</legend>
+    <div class="layui-field-box">
+        <form class="layui-form" id="searchForm" action="/finduserlist">
+            <!--<div class="layui-inline" style="margin-left: 15px">-->
+            <!--<label>客户昵称:</label>-->
+            <!--<div class="layui-input-inline">-->
+            <!--<input type="text" value="" name="s_mNickname" placeholder="请输入客户昵称" class="layui-input search_input">-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="layui-inline" style="margin-left: 15px">
+                <label>客户真实姓名:</label>
+                <div class="layui-input-inline">
+                    <input type="text" value="" name="clientName" placeholder="请输入客户真实姓名"
+                           class="layui-input search_input">
+                </div>
+            </div>
+            <div class="layui-inline" style="margin-left: 15px">
+                <label>客户手机号:</label>
+                <div class="layui-input-inline">
+                    <input type="text" value="" name="phone" placeholder="请输入客户手机号" class="layui-input search_input">
+                </div>
+            </div>
+            <!--<div class="layui-inline" style="margin-left: 15px">-->
+            <!--<label>客户状态:</label>-->
+            <!--<div class="layui-input-inline">-->
+            <!--<select name="s_mStatus">-->
+            <!--<option value="" selected="">请选择客户状态</option>-->
+            <!--<option value="0">启用</option>-->
+            <!--<option value="1">禁用</option>-->
+            <!--</select><div class="layui-unselect layui-form-select"><div class="layui-select-title"><input type="text" placeholder="请选择客户状态" value="" readonly="" class="layui-input layui-unselect"><i class="layui-edge"></i></div><dl class="layui-anim layui-anim-upbit"><dd lay-value="" class="layui-select-tips">请选择客户状态</dd><dd lay-value="0" class="">启用</dd><dd lay-value="1" class="">禁用</dd></dl></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="layui-inline">
+                <button type="submit" class="layui-btn" lay-submit="" lay-filter="searchForm">查询</button>
+            </div>
+            <div class="layui-inline">
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+            <div class="layui-inline">
+                <a href="#" class="layui-btn layui-btn-normal" data-type="addHotelMember">添加酒店客户</a>
+            </div>
+        </form>
+    </div>
+</fieldset>
+<div class="layui-table-body layui-table-main">
+    <table class="layui-table" cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+        <tr>
+
+            <th data-field="id" data-key="1-0-1" data-unresize="true"
+                class=" layui-unselect">
+                <div class="layui-table-cell laytable-cell-1-0-1"><span>ID</span><span
+                        class="layui-table-sort layui-inline"><i
+                        class="layui-edge layui-table-sort-asc" title="升序"></i><i
+                        class="layui-edge layui-table-sort-desc" title="降序"></i></span>
+                </div>
+            </th>
+            <th data-field="roomId" data-key="1-0-2" data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-2"><span>客户名称</span></div>
+            </th>
+            <th data-field="roomName" data-key="1-0-3" data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-3"><span>客户身份编号</span>
+                </div>
+            </th>
+            <th data-field="standardPrice" data-key="1-0-4" data-minwidth="120"
+                class="">
+                <div class="layui-table-cell laytable-cell-1-0-4"><span>手机号</span>
+                </div>
+            </th>
+            <th data-field="status" data-key="1-0-5" data-unresize="true"
+                class=" layui-unselect">
+                <div class="layui-table-cell laytable-cell-1-0-5"><span>性别</span><span
+                        class="layui-table-sort layui-inline"><i
+                        class="layui-edge layui-table-sort-asc" title="升序"></i><i
+                        class="layui-edge layui-table-sort-desc" title="降序"></i></span>
+                </div>
+            </th>
+            <th data-field="createDate" data-key="1-0-7" data-unresize="true" class="">
+                <div class="layui-table-cell laytable-cell-1-0-7"><span>邮箱</span>
+                </div>
+            </th>
+
+            <!--<th data-field="createDate" data-key="1-0-8" data-unresize="true" class="">-->
+            <!--<div class="layui-table-cell laytable-cell-1-0-8"><span>是否是客户</span>-->
+            <!--</div>-->
+            <!--</th>-->
+
+            <!--<th data-field="createDate" data-key="1-0-9" data-unresize="true" class="">-->
+            <!--<div class="layui-table-cell laytable-cell-1-0-9"><span>客户主测身份类型</span>-->
+            <!--</div>-->
+            <!--</th>-->
+
+
+            <th data-field="createDate" data-key="1-0-12" data-unresize="true" class="">
+                <div class="layui-table-cell laytable-cell-1-0-12"><span>操作</span>
+                </div>
+            </th>
+        </tr>
+        <tr data-index="1" class="" th:each="cli:${cliList.list}">
+            <td data-field="0" data-key="1-0-0" class="layui-table-col-special">
+                <div class="layui-table-cell laytable-cell-1-0-0 laytable-cell-numbers">
+                    <span th:text="${cli.id}"></span>
+                </div>
+            </td>
+            <td data-field="id" data-key="1-0-1" class="">
+                <div class="layui-table-cell laytable-cell-1-0-1"><span
+                        th:text="${cli.clientName}"></span></div>
+            </td>
+            <td data-field="roomId" data-key="1-0-2" data-content="19"
+                data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-2"><span
+                        class="layui-badge layui-bg-green"> <span
+                        th:text="${cli.icCard}"></span></span></div>
+            </td>
+            <td data-field="roomName" data-key="1-0-3" data-content=""
+                data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-3"><span> <span
+                        th:text="${cli.phone}"></span></span>
+                </div>
+            </td>
+            <td data-field="standardPrice" data-key="1-0-4" data-content=""
+                data-minwidth="120" class="">
+                <div class="layui-table-cell laytable-cell-1-0-4"><span
+                        class="layui-badge layui-bg-blue" th:if="${cli.sex==0}"> <span
+                ></span>男</span>
+                    <span
+                            class="layui-badge layui-bg-blue" th:if="${cli.sex==1}"> <span
+                    ></span>男</span>
+                </div>
+            </td>
+
+            <td data-field="status" data-key="1-0-5" data-content="3" class="">
+                <div class="layui-table-cell laytable-cell-1-0-5"><span th:text="${cli.email}"></span>
+
+                </div>
+            </td>
+            <!--<td data-field="status" data-key="1-0-5" data-content="3" class="">-->
+            <!--<div class="layui-table-cell laytable-cell-1-0-5"  th:switch="${cli.sign}">-->
+
+
+            <!--<span th:case="0">普通客户</span>-->
+
+            <!--<span th:case="2">普通客户</span>-->
+
+            <!--<span th:case="3">超级客户</span>-->
+            <!--</div>-->
+            <!--</td>-->
+
+            <!--<td data-field="createDate" data-key="1-0-6" data-content="1545992730000"-->
+            <!--class="">-->
+            <!--<div class="layui-table-cell laytable-cell-1-0-6" th:switch="${cli.typeid}">-->
+            <!--&lt;!&ndash;<span th:text="${cli.typeid}"></span>&ndash;&gt;-->
+
+            <!--<span th:case="1">身份证</span>-->
+
+            <!--<span th:case="2">护照</span>-->
+            <!--<span th:case="3">其他</span>-->
+            <!--</div>-->
+            <!--</td>-->
+            <td data-field="createDate" data-key="1-0-6" data-content="1545992730000"
+                class="">
+                <div class="layui-table-cell laytable-cell-1-0-6">
+                    <span><a class="layui-btn layui-btn-xs"
+                             th:onClick="'javascript:accounts(\''+${cli.id}+'\');'">删除</a></span>
+                </div>
+            </td>
+        </tr>
+
+
+        </tbody>
+
+
+        <script type="text/javascript" src="/static/layui/layui.js"></script>
+        <script type="text/javascript" src="/static/js/tools.js"></script>
+        <script>
+
+            function accounts(item) {
+
+                layer.confirm("你确定删除么？", {btn: ['是的,我确定', '我再想想']},
+                    function () {
+                        $.post("/delUser", {"id": item}, function (res) {
+                            if (res.success) {
+                                layer.msg("删除成功", {time: 1000}, function () {
+                                    location.reload();
+                                });
+                            } else {
+                                layer.msg(res.message);
+                            }
+
+                        });
+                    }
+                )
+
+            }
+
+
+            function Recover_deposit(item) {
+
+                layer.confirm("你确定要追缴押金？", {btn: ['是的,我确定', '我再想想']},
+
+                    function delsc(item) {
+
+                        var id = item
+
+                        var url = "/Recover_deposit"
+
+
+                        layer.prompt({title: '请输入押金数'}, function (val, index) {
+
+
+                            $.post(url, {id: id, val: val}, function (res) {
+
+                                if (res.success) {
+                                    layer.msg("追加成功", {time: 1000}, function () {
+                                        location.reload();
+                                    });
+                                } else {
+                                    layer.msg(res.message);
+                                }
+                            })
+
+                        })
+
+                    }
+                )
+
+            }
+        </script>
+    </table>
+</div>
+
+<div class="layui-table-page">
+    <div id="layui-table-page1">
+        <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-1"><span
+                class="layui-laypage-limits"></span><span>共</span><span
+                class="layui-laypage-count" th:text="${cliList.total}"></span><span>条</span><a
+                th:href="@{'/backuserlist?page='+${cliList.pageNum-1}}"
+
+                class="layui-laypage-prev layui-disabled"
+                data-page="0"><i
+                class="layui-icon"></i></a><a href="/backuserlist?page=1">
+            <span
+                    class="layui-laypage-curr"><em class="layui-laypage-em"></em><em>1</em></span>
+
+        </a>
+
+            <a  href="/backuserlist?page=2" data-page="2"  th:if="${cliList.pageNum>=2}">2</a>
+
+
+            <i class="layui-icon"   th:if="${cliList.pageNum>=2}"></i></a>
+
+            <span class="layui-laypage-skip">到第<input type="text" min="1" value="1" class="layui-input">页<button
+                    type="button" class="layui-laypage-btn">确定</button></span></div>
+    </div>
+</div>
+
+<script th:inline="none">
+
+    function delsc(item) {
+
+
+        layer.confirm("你确定要删除该酒店房间么？", {btn: ['是的,我确定', '我再想想']},
+            function () {
+                $.post("/delsRoom", {"id": item}, function (res) {
+                    if (res.success) {
+                        layer.msg("删除成功", {time: 1000}, function () {
+                            location.reload();
+                        });
+                    } else {
+                        layer.msg(res.message);
+                    }
+
+                });
+            }
+        )
+
+    }
+
+    layui.use(['layer', 'form', 'table', 'laydate'], function () {
+        var layer = layui.layer,
+            $ = layui.jquery,
+            form = layui.form,
+            laydate = layui.laydate,
+            table = layui.table;
+
+
+        var active = {
+            addHotelMember: function () {
+                var addIndex = layer.open({
+                    title: "添加酒店客户",
+                    type: 2,
+                    content: "/toaddUser",
+                    success: function (layero, addIndex) {
+                        setTimeout(function () {
+                            layer.tips('点击此处返回酒店客户列表', '.layui-layer-setwin .layui-layer-close', {
+                                tips: 3
+                            });
+                        }, 500);
+                    }
+                });
+                //改变窗口大小时，重置弹窗的高度，防止超出可视区域（如F12调出debug的操作）
+                $(window).resize(function () {
+                    layer.full(addIndex);
+                });
+                layer.full(addIndex);
+            }
+        };
+
+        $('.layui-inline .layui-btn-normal').on('click', function () {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+
+
+</script>
+
+
+</body>
+</html>

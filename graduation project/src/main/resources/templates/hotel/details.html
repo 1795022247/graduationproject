@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/hotel/layui/dist/css/layui.css">
+    <link rel="stylesheet" href="/static/hotel/css/global.css" charset="utf-8">
+    <link rel="stylesheet" href="/static/hotel/css/global(1).css" charset="utf-8">
+    <link rel="stylesheet" href="/static/hotel/css/store.css" charset="utf-8">
+
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.rotate.min.js"></script>
+
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all">
+    <link rel="stylesheet" href="/static/css/user.css" media="all">
+
+<link rel="stylesheet" href="/static/css/layui.css">
+
+    <script src="/static/layui/layui.js"></script>
+    <script src="https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c"></script>
+    <script src="/static/hotel/layui/dist/layui.js"></script>
+    <title>经济舒适单人间-酒店管理系统</title>
+    <link id="layuicss-layer" rel="stylesheet"
+          href="/static/hotel/layui/dist/css/modules/layer/default/layer.css" media="all">
+    <link id="layuicss-laydate" rel="stylesheet"
+          href="/static/hotel/layui/dist/css/modules/laydate/default/laydate.css"
+          media="all">
+
+
+
+    <link rel="stylesheet" th:href="@{~/static/css/font.css}"/>
+    <link rel="stylesheet" th:href="@{~/static/css/xadmin.css}"/>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{~/static/lib/layui/layui.js}" charset="utf-8"></script>
+    <script type="text/javascript" th:src="@{~/static/js/xadmin.js}"></script>
+</head>
+<body>
+<!--<div class="layui-header header header-store" style="background-color: #083a6d;">-->
+<!--<div class="layui-container"> <a class="logo" href="/hotel/index.html"> <img src="/static/hotel/images/logo.png" alt="layui">-->
+<!--</a>-->
+<!--<div class="layui-form component" lay-filter="LAY-site-header-component"></div>-->
+<!--<ul class="layui-nav">-->
+<!--<li class="layui-nav-item layui-hide-xs"> <a href="/hotel/index.html">首页</a> </li>-->
+
+<!--<li class="layui-nav-item layui-hide-xs layui-this"> <a href="/hotel/list/0/0/1/20.html">房间</a> </li>-->
+
+
+<!--<li class="layui-nav-item fly-layui-user" id="FLY-notice">-->
+
+
+<!--<a class="fly-nav-avatar" href="/hotel/myInfo.html" id="LAY_header_avatar">-->
+<!--<img src="/static/hotel/images/head.jpg">-->
+<!--<cite class="layui-hide-xs">欢迎您：李四</cite>-->
+<!--</a>-->
+
+<!--</li>-->
+
+<!--<li class="layui-nav-item layui-hide-xs"> <a href="/hotel/exitSystem.html">退出</a> </li>-->
+
+
+<!--<span class="layui-nav-bar" style="left: 560px; top: 55px; width: 0px; opacity: 0;"></span>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--[if lt IE 9]>
+<script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+<script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script><![endif]-->
+<!--<div class="shop-nav shopdata">-->
+    <!--<div id="LAY-topbar" style="height: auto;">-->
+        <!--<form action="/hotel/search" method="post">-->
+            <!--<div class="input-search">-->
+                <!--<div><input type="text" placeholder="搜索你需要的房间" name="keywords" autocomplete="off" value="">-->
+                    <!--<button class="layui-btn layui-btn-shop"><i class="layui-icon layui-icon-search"></i></button>-->
+
+                <!--</div>-->
+                <!--<div class="layui-container layui-hide-xs"><a href="https://www.layui.com/" class="topbar-logo"> <img-->
+                        <!--src="/static/hotel/images/logo-1.png" alt="layui"> </a></div>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="layui-header header header-store" style="background-color: #083a6d;" th:fragment="top">
+    <div class="layui-container"> <a class="logo" href="/user/toindex"> <img src="/static/picture/logo.png" alt="layui">
+    </a>
+        <div class="layui-form component" lay-filter="LAY-site-header-component"></div>
+        <ul class="layui-nav">
+            <li class="layui-nav-item layui-hide-xs"> <a href="/user/toindex">首页</a> </li>
+
+            <li class="layui-nav-item layui-hide-xs"> <a href="/user/toindex">房间</a> </li>
+
+            <li th:if="${session.clientUser==null}" class="layui-nav-item layui-hide-xs layui-this"> <a href="/user/tologin" target="center">登入</a> </li>
+            <li th:if="${session.clientUser!=null}" class="layui-nav-item fly-layui-user layui-this" id="FLY-notice">
+
+
+                <a class="fly-nav-avatar" href="/user/myInfo" id="LAY_header_avatar">
+                    <img src="/static/hotel/images/head.jpg"  width="40px">
+                    <cite class="layui-hide-xs" th:text="${session.clientUser.clientName}"></cite>
+                </a>
+
+
+            </li>
+
+            <script>
+                layui.cache.page = 'store';
+                layui.cache.user = {
+                    username: '游客',
+                    uid: -1,
+                    avatar: '//res.layui.com/static/images/fly/avatar/default.png',
+                    experience: 0,
+                    sum: 0,
+                    vip: 0,
+                    sex: ''
+                };
+                layui.config({
+                    version: "1545301148662"
+                }).extend({
+                    'fly': '/static/hotel/layui/dist/lay/modules/fly/index'
+                }).use('fly');
+            </script>
+            <li class="layui-nav-item layui-hide-xs "> <a href="/user/register">注册<span class="layui-badge-dot"></span></a>
+
+
+            </li>
+
+
+
+
+            <span class="layui-nav-bar" style="left: 560px; top: 55px; width: 0px; opacity: 0;"></span>
+        </ul>
+    </div>
+</div>
+<div class="layui-container shopdata">
+    <div class="layui-card shopdata-intro">
+        <div class="layui-card-header">
+				<span class="layui-breadcrumb layui-hide-xs" style="visibility: visible;">
+				<a href="#">酒店首页</a><span lay-separator="">/</span>
+
+						           <a href="#">酒店1楼</a><span lay-separator="">/</span>
+
+
+
+
+						 <a><cite>房间详情</cite></a> </span>
+
+        </div>
+        <div class="layui-card-body layui-row">
+            <div class="layui-col-md6">
+                <div class="intro-img photos"><img th:src="${room.image}"
+                                                   lay-src="http://pji8adcyw.bkt.clouddn.com/950f5d78-d2a2-4e60-843a-60cbd0bd2651.jpg"
+                                                   alt="产品封面" layer-index="0"></div>
+            </div>
+            <div class="layui-col-md6">
+                <div class="intro-txt">
+                    <h1 class="title"> 经济舒适单人间 </h1>
+                    <input type="hidden" id="id" name="id" value="1">
+                    <div class="store-attrs">
+                        <div class="summary">
+                            <p class="reference"><span>房间号</span> <span th:text="${room.roomNo}"></span></p>
+                            <p class="reference"><span>房间名</span> <span th:text="${room.roomName}"></span></p>
+                            <p class="reference"><span>宽　带</span> 免费wifi</p>
+                            <p class="reference"><span>标准价</span> <i>￥</i><span th:text="${room.price}"></span></p>
+                            <p class="activity"><span>会员价</span><strong class="price"><i>￥</i><span
+                                    th:text="${room.flag2}"></span></strong></p>
+                            <p class="activity"><span>状　态</span>
+                                <strong class="status">
+
+
+                                    <span>预定</span>
+
+
+                                </strong>
+
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <p class="store-detail-active" id="shopEvent">
+                        <a th:onclick="'javascript:delsc(\''+${room.id}+'\');'"
+                          id="pro" class="store-bg-orange fly-memberReserveHotel">
+
+
+                            <i class="layui-icon layui-icon-dollar"></i>立即预定 </a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="layui-card shopdata-content">
+        <div class="layui-card-body detail-body layui-text">
+            <div class="layui-elem-quote"> 每天14：00后入住，12：00之前退房。</div>
+            <p><img src="http://pji8adcyw.bkt.clouddn.com/7abc9f95-ca46-4a83-ad31-2a95c4ec0092.jpg"
+                    style="max-width:100%;"><br></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- 底部 -->
+<!-- 底部 -->
+<div class="fly-footer">
+    <p><a href="http://www.lggcmy.cn/">YouAndMe</a> 2018 © <a href="http://www.lggcmy.cn/">lggcmy.cn</a></p>
+    <p>
+        友情链接
+        <a href="http://java.lggcmy.cn" target="_blank">你懂的</a>
+        <a href="http://www.lggcmy.cn/code/list/all/1/20.html" target="_blank">我和你</a>
+        <a href="http://www.lggcmy.cn/market/list/all/1/20.html" target="_blank">lggcmy.cn</a>
+        <a href="http://www.lggcmy.cn/resumetemplate/list/1/20.html" target="_blank">cee</a>
+        <a href="http://www.lggcmy.cn/forum/list/0/1/20.html" target="_blank">社区论坛</a></p>
+
+</div>
+<script src="/static/hotel/layui/dist/layui.js"></script>
+
+
+<ul class="layui-fixbar">
+    <li class="layui-icon layui-fixbar-top" lay-type="top" style=""></li>
+</ul>
+
+
+
+
+<script>
+
+
+    function delsc(item) {
+
+
+
+var id=item;
+
+
+        var url = "/toAddOrder/"
+        url = url + id;
+
+        layer.open({
+            type: 2,
+            area: [600 + 'px', 400 + 'px'],
+            fix: false, //不固定
+            maxmin: true,
+            shadeClose: true,
+            shade: 0.4,
+            title: "预定",
+            content: url
+        });
+
+
+    }
+</script>
+
+
+</body>
+</html>

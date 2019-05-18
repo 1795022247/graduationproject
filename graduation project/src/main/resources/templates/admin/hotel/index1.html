@@ -1,0 +1,1921 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>后台管理</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <!-- 页面描述 -->
+    <meta name="description" content="">
+    <!-- 页面关键词 -->
+    <meta name="keywords" content="">
+    <!-- 网页作者 -->
+    <meta name="author" content="马王天地">
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_tnyc012u2rlwstt9.css" media="all">
+    <link rel="stylesheet" href="/static/css/main.css" media="all">
+    <script src="//widget.seniverse.com/widget/chameleon.js" charset="utf-8" async=""></script>
+    <script src="https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c"></script>
+    <link id="layuicss-layer" rel="stylesheet"
+          href="http://localhost:8080/static/layui/css/modules/layer/default/layer.css?v=3.1.1" media="all">
+    <script type="text/javascript" charset="utf-8" async=""
+            src="//cdn.sencdn.com/widget/static/js/theme-slim-chameleon-6690194.js"></script>
+    <style type="text/css">.tpwthwidt .baseText_1MW-qdn {
+        font-family: PingFang SC, Microsoft YaHei UI Light, STHeitiSC-Light, Microsoft YaHei UI, Microsoft YaHei;
+        font-size: 14px;
+        color: #fff
+    }
+
+    .tpwthwidt .weakText_1XEibmw {
+        font-size: 12px;
+        color: hsla(0, 0%, 100%, .6)
+    }
+
+    .tpwthwidt .strongText_xq7t0o6 {
+        font-family: PingFangSC-Light, Microsoft YaHei UI Light, Microsoft YaHei UI, Microsoft YaHei
+    }
+
+    .tpwthwidt .hugeText_2gzr8_A {
+        font-family: Avenir Next, PingFang SC, Helverica-light, Segoe UI, Century Gothic, Arial;
+        font-size: 48px
+    }
+
+    .tpwthwidt .enText_1THEe70 {
+        font-size: 12px
+    }
+
+    .tpwthwidt .flexItem_2-RBTnC {
+        display: inline-table;
+        width: 33%
+    }
+
+    .tpwthwidt .badge_3CVCbjn {
+        display: inline-block;
+        padding: 4px 9px 4px 6px
+    }
+
+    .tpwthwidt .badge_3CVCbjn, .tpwthwidt .circle_2g9jKXB {
+        margin: 3px;
+        line-height: 14px;
+        border-radius: 12px;
+        background-color: rgba(0, 0, 0, .2);
+        white-space: nowrap
+    }
+
+    .tpwthwidt .circle_2g9jKXB {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        padding: 4px
+    }
+
+    .tpwthwidt .textCenter_73kZ5EK {
+        text-align: center
+    }
+
+    .tpwthwidt .textLeft_3snekzo {
+        text-align: left
+    }</style>
+    <style type="text/css">.tpwthwidt .middle_2Gkinvg {
+        margin-top: -4px;
+        text-align: left
+    }
+
+    .tpwthwidt .iconHuge_5vnGi7p {
+        display: inline-block;
+        margin: 0 0 0 16px
+    }
+
+    .tpwthwidt .now_3uqMjOZ {
+        display: inline-block;
+        margin: -6px 0 0 16px
+    }
+
+    .tpwthwidt .extra_MRx7zG4 {
+        display: inline-block;
+        float: right
+    }
+
+    .tpwthwidt .bottom_1XdcpMz {
+        bottom: 0;
+        width: 100%;
+        position: absolute
+    }
+
+    .tpwthwidt .alarmPane_2bN1zk5 {
+        margin-left: 16px
+    }
+
+    @media screen and (min-height: 801px), screen and (min-width: 481px) {
+        .tpwthwidt .extra_MRx7zG4 {
+            margin: 0 16px 0 0
+        }
+
+        .tpwthwidt .daily_1AQTLSx {
+            margin-top: 10px;
+            padding: 16px 0 14px
+        }
+
+        .tpwthwidt .copyright_2JjcV5R {
+            padding: 0 0 14px
+        }
+    }
+
+    @media screen and (max-width: 480px) and (max-height: 800px) {
+        .tpwthwidt .extra_MRx7zG4 {
+            padding: 10px 0
+        }
+
+        .tpwthwidt .daily_1AQTLSx {
+            padding: 12px 0
+        }
+
+        .tpwthwidt .copyright_2JjcV5R {
+            padding: 0 0 14px
+        }
+    }
+
+    @media screen and (max-width: 320px) and (max-height: 800px) {
+        .tpwthwidt .extra_MRx7zG4 {
+            padding: 6px 0
+        }
+
+        .tpwthwidt .daily_1AQTLSx {
+            padding: 12px 0 8px
+        }
+
+        .tpwthwidt .copyright_2JjcV5R {
+            padding: 0 0 14px
+        }
+    }</style>
+    <style type="text/css">.tpwthwidt .cover_1fRJ83H {
+        position: relative;
+        display: inline-block;
+        display: block;
+        opacity: 1
+    }
+
+    .tpwthwidt .front_2F0Ii3c {
+        position: absolute;
+        margin-top: 6px;
+        width: 290px;
+        border-radius: 4px;
+        background: hsla(0, 0%, 5%, .95);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, .15);
+        z-index: 2147483600;
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: visibility 0s .2s, opacity 0s .2s;
+        transition: visibility 0s .2s, opacity 0s .2s
+    }
+
+    @media screen and (min-height: 801px), screen and (min-width: 481px) {
+        .tpwthwidt .widgetAlarmed_3wrAD5F:hover {
+            width: 290px !important;
+            height: 484px !important
+        }
+
+        .tpwthwidt .widgetNotAlarmed_J0orFJz:hover {
+            width: 290px !important;
+            height: 454px !important
+        }
+
+        .tpwthwidt .cover_1fRJ83H:hover .front_2F0Ii3c {
+            display: block;
+            visibility: visible;
+            pointer-events: auto;
+            opacity: 1;
+            -webkit-transition: opacity .3s;
+            transition: opacity .3s
+        }
+    }
+
+    @media screen and (max-width: 480px) and (max-height: 800px) {
+        .tpwthwidt .hoveredWidget_dOOcC9b {
+            position: fixed;
+            left: 0 !important;
+            right: 0 !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            border-radius: 0;
+            opacity: 1;
+            overflow-y: hidden;
+            overflow-x: hidden
+        }
+
+        .tpwthwidt .hoveredFront_27NiQha {
+            display: block;
+            visibility: visible;
+            pointer-events: auto;
+            opacity: 1;
+            overflow: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: auto;
+            height: auto
+        }
+    }
+
+    .tpwthwidt .widget_wefwpzK {
+        background: #fff
+    }
+
+    .tpwthwidt .widgetBg0_23sr6Vh {
+        background: -webkit-linear-gradient(#2869e9, #79bfff);
+        background: linear-gradient(#2869e9, #79bfff)
+    }
+
+    .tpwthwidt .widgetBg1_3DMysnt {
+        background: -webkit-linear-gradient(#1b1d5c, #5d428e);
+        background: linear-gradient(#1b1d5c, #5d428e)
+    }
+
+    .tpwthwidt .widgetBg2_2RM2Zt7 {
+        background: -webkit-linear-gradient(#2869e9, #79bfff);
+        background: linear-gradient(#2869e9, #79bfff)
+    }
+
+    .tpwthwidt .widgetBg3_lq7SeH8 {
+        background: -webkit-linear-gradient(#1b1d5c, #5d428e);
+        background: linear-gradient(#1b1d5c, #5d428e)
+    }
+
+    .tpwthwidt .widgetBg4_2HF6sZe {
+        background: -webkit-linear-gradient(#6f7c85, #919b9f);
+        background: linear-gradient(#6f7c85, #919b9f)
+    }
+
+    .tpwthwidt .widgetBg5_2Q2wksk {
+        background: -webkit-linear-gradient(#2869e9, #79bfff);
+        background: linear-gradient(#2869e9, #79bfff)
+    }
+
+    .tpwthwidt .widgetBg6_f_IALBW {
+        background: -webkit-linear-gradient(#1b1d5c, #5d428e);
+        background: linear-gradient(#1b1d5c, #5d428e)
+    }
+
+    .tpwthwidt .widgetBg7_1KgtSj- {
+        background: -webkit-linear-gradient(#6f7c85, #919b9f);
+        background: linear-gradient(#6f7c85, #919b9f)
+    }
+
+    .tpwthwidt .widgetBg8_1AuI-Bg {
+        background: -webkit-linear-gradient(#2b2c2d, #6e747b);
+        background: linear-gradient(#2b2c2d, #6e747b)
+    }
+
+    .tpwthwidt .widgetBg9_29NCu16 {
+        background: -webkit-linear-gradient(#6f7c85, #919b9f);
+        background: linear-gradient(#6f7c85, #919b9f)
+    }
+
+    .tpwthwidt .widgetBg10_1thup8w, .tpwthwidt .widgetBg11_2OHumNM, .tpwthwidt .widgetBg12_r_HL6Fm, .tpwthwidt .widgetBg13_2bqoUWQ, .tpwthwidt .widgetBg14_2vdX_eB, .tpwthwidt .widgetBg15_2np0bae, .tpwthwidt .widgetBg19_1Xv926M, .tpwthwidt .widgetBg20_2Jsae9C {
+        background: -webkit-linear-gradient(#566b6e, #7d939b);
+        background: linear-gradient(#566b6e, #7d939b)
+    }
+
+    .tpwthwidt .widgetBg16_TVC2utt, .tpwthwidt .widgetBg17_3kNtBhw, .tpwthwidt .widgetBg18_2MisGKt {
+        background: -webkit-linear-gradient(#2f4146, #617279);
+        background: linear-gradient(#2f4146, #617279)
+    }
+
+    .tpwthwidt .widgetBg21_276n6G6, .tpwthwidt .widgetBg22_12Umo8M, .tpwthwidt .widgetBg23_1RoZ3cN, .tpwthwidt .widgetBg24_2fYRfXH, .tpwthwidt .widgetBg25_rN_IBW_ {
+        background: -webkit-linear-gradient(#6f7c85, #919b9f);
+        background: linear-gradient(#6f7c85, #919b9f)
+    }
+
+    .tpwthwidt .widgetBg26_ITCj0W_, .tpwthwidt .widgetBg27_I343giz, .tpwthwidt .widgetBg28_290vfbE, .tpwthwidt .widgetBg29_DbOQ4_3 {
+        background: -webkit-linear-gradient(#9e8a47, #ccb166);
+        background: linear-gradient(#9e8a47, #ccb166)
+    }
+
+    .tpwthwidt .widgetBg30_3CWgVhL {
+        background: -webkit-linear-gradient(#6f7c85, #919b9f);
+        background: linear-gradient(#6f7c85, #919b9f)
+    }
+
+    .tpwthwidt .widgetBg31_2es6UwL {
+        background: -webkit-linear-gradient(#6c6c6c, #959595);
+        background: linear-gradient(#6c6c6c, #959595)
+    }
+
+    .tpwthwidt .widgetBg32_1z0r8zy, .tpwthwidt .widgetBg33_2u91vFe {
+        background: -webkit-linear-gradient(#2869e9, #79bfff);
+        background: linear-gradient(#2869e9, #79bfff)
+    }
+
+    .tpwthwidt .widgetBg34_sLBZDJx, .tpwthwidt .widgetBg35_fLkYGpX, .tpwthwidt .widgetBg36_2FtKQ7p {
+        background: -webkit-linear-gradient(#2f4146, #617279);
+        background: linear-gradient(#2f4146, #617279)
+    }
+
+    .tpwthwidt .widgetBg37_aVcRDfk {
+        background: -webkit-linear-gradient(#69a9e8, #b5dafb);
+        background: linear-gradient(#69a9e8, #b5dafb)
+    }
+
+    .tpwthwidt .widgetBg38__Zcvx6c {
+        background: -webkit-linear-gradient(#e7592b, #fba42f);
+        background: linear-gradient(#e7592b, #fba42f)
+    }
+
+    .tpwthwidt .widgetBg99_Y9HYMsj {
+        background: -webkit-linear-gradient(#6f7c85, #919b9f);
+        background: linear-gradient(#6f7c85, #919b9f)
+    }</style>
+    <style type="text/css">.tpwthwidt .iconSmall_2z-CFEN {
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
+        background-repeat: no-repeat
+    }
+
+    .tpwthwidt .iconMiddle_22RlyFV {
+        width: 24px;
+        height: 24px;
+        background-size: 24px 24px;
+        background-repeat: no-repeat
+    }
+
+    .tpwthwidt .iconHuge_11vwuPk {
+        width: 56px;
+        height: 56px;
+        background-size: 56px 56px;
+        background-repeat: no-repeat
+    }
+
+    .tpwthwidt .icon0_UcAuxy8 {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzLjguMyAoMjk4MDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPjA8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0i5aSp5rCU5Zu+5qCHIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0i5aSp5rCU5Zu+5qCHX+m7mOiupOiDjOaZryIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4wMDAwMDAsIC04MC4wMDAwMDApIiBmaWxsPSIjRjJENzE2Ij4KICAgICAgICAgICAgPHBhdGggZD0iTTIxNiwxMDIgQzIyMS41MjI4NDcsMTAyIDIyNiw5Ny41MjI4NDc1IDIyNiw5MiBDMjI2LDg2LjQ3NzE1MjUgMjIxLjUyMjg0Nyw4MiAyMTYsODIgQzIxMC40NzcxNTMsODIgMjA2LDg2LjQ3NzE1MjUgMjA2LDkyIEMyMDYsOTcuNTIyODQ3NSAyMTAuNDc3MTUzLDEwMiAyMTYsMTAyIFoiIGlkPSJPdmFsLTE0OSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+)
+    }
+
+    .tpwthwidt .iconHuge0_3NvWUns {
+        background-image: url(//cdn.sencdn.com/widget/static/img/0-78366ca.svg)
+    }
+
+    .tpwthwidt .icon1_17gUFXE {
+        background-image: url(//cdn.sencdn.com/widget/static/img/1-3aebd69.svg)
+    }
+
+    .tpwthwidt .iconHuge1_3PWyBAg {
+        background-image: url(//cdn.sencdn.com/widget/static/img/1-453b930.svg)
+    }
+
+    .tpwthwidt .icon2_30sJwgU {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzLjguMyAoMjk4MDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPjI8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0i5aSp5rCU5Zu+5qCHIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0i5aSp5rCU5Zu+5qCHX+m7mOiupOiDjOaZryIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4wMDAwMDAsIC0xNzAuMDAwMDAwKSIgZmlsbD0iI0YyRDcxNiI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0yMTYsMTkyIEMyMjEuNTIyODQ3LDE5MiAyMjYsMTg3LjUyMjg0NyAyMjYsMTgyIEMyMjYsMTc2LjQ3NzE1MyAyMjEuNTIyODQ3LDE3MiAyMTYsMTcyIEMyMTAuNDc3MTUzLDE3MiAyMDYsMTc2LjQ3NzE1MyAyMDYsMTgyIEMyMDYsMTg3LjUyMjg0NyAyMTAuNDc3MTUzLDE5MiAyMTYsMTkyIFoiIGlkPSJPdmFsLTE0OSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+)
+    }
+
+    .tpwthwidt .iconHuge2_1BGNMNU {
+        background-image: url(//cdn.sencdn.com/widget/static/img/2-64ca3a9.svg)
+    }
+
+    .tpwthwidt .icon3_3LPdLD9 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/3-550e9da.svg)
+    }
+
+    .tpwthwidt .iconHuge3_1cbgwPW {
+        background-image: url(//cdn.sencdn.com/widget/static/img/3-88aeaba.svg)
+    }
+
+    .tpwthwidt .icon4_cPpeB1e {
+        background-image: url(//cdn.sencdn.com/widget/static/img/4-1435398.svg)
+    }
+
+    .tpwthwidt .iconHuge4_2SqYCt6 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/4-25bd98c.svg)
+    }
+
+    .tpwthwidt .icon5_3gzcQec {
+        background-image: url(//cdn.sencdn.com/widget/static/img/5-bd5f57d.svg)
+    }
+
+    .tpwthwidt .iconHuge5_3RNLUJ9 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/5-715b9c3.svg)
+    }
+
+    .tpwthwidt .icon6_eYeVrMO {
+        background-image: url(//cdn.sencdn.com/widget/static/img/6-ad6f7f6.svg)
+    }
+
+    .tpwthwidt .iconHuge6_3BWGKra {
+        background-image: url(//cdn.sencdn.com/widget/static/img/6-7b95bc6.svg)
+    }
+
+    .tpwthwidt .icon7_1if6C5i {
+        background-image: url(//cdn.sencdn.com/widget/static/img/7-6cf9c9f.svg)
+    }
+
+    .tpwthwidt .iconHuge7_1dyb8aF {
+        background-image: url(//cdn.sencdn.com/widget/static/img/7-77c8e66.svg)
+    }
+
+    .tpwthwidt .icon8_3mqZxb9 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/8-3a34267.svg)
+    }
+
+    .tpwthwidt .iconHuge8_cZyQ4UA {
+        background-image: url(//cdn.sencdn.com/widget/static/img/8-0372635.svg)
+    }
+
+    .tpwthwidt .icon9_ZJ7fG1a {
+        background-image: url(//cdn.sencdn.com/widget/static/img/9-ef8a7f6.svg)
+    }
+
+    .tpwthwidt .iconHuge9_2R6jmrB {
+        background-image: url(//cdn.sencdn.com/widget/static/img/9-2c511b7.svg)
+    }
+
+    .tpwthwidt .icon10_LascRdX {
+        background-image: url(//cdn.sencdn.com/widget/static/img/10-92326b3.svg)
+    }
+
+    .tpwthwidt .iconHuge10_wujoA81 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/10-6211aed.svg)
+    }
+
+    .tpwthwidt .icon11_2TAM0bV {
+        background-image: url(//cdn.sencdn.com/widget/static/img/11-4e0fb07.svg)
+    }
+
+    .tpwthwidt .iconHuge11_Ng1a_I7 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/11-e17252c.svg)
+    }
+
+    .tpwthwidt .icon12_3ntkkfh {
+        background-image: url(//cdn.sencdn.com/widget/static/img/12-cf8737c.svg)
+    }
+
+    .tpwthwidt .iconHuge12_3WwPDSU {
+        background-image: url(//cdn.sencdn.com/widget/static/img/12-214f1fc.svg)
+    }
+
+    .tpwthwidt .icon13_2_PTKzS {
+        background-image: url(//cdn.sencdn.com/widget/static/img/13-63464b7.svg)
+    }
+
+    .tpwthwidt .iconHuge13_1Ofb23Q {
+        background-image: url(//cdn.sencdn.com/widget/static/img/13-0d2dd40.svg)
+    }
+
+    .tpwthwidt .icon14_ZNTeNB3 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/14-ea2b50c.svg)
+    }
+
+    .tpwthwidt .iconHuge14_3OjGCaY {
+        background-image: url(//cdn.sencdn.com/widget/static/img/14-272b22b.svg)
+    }
+
+    .tpwthwidt .icon15_2lJRBdV {
+        background-image: url(//cdn.sencdn.com/widget/static/img/15-5b5cdd2.svg)
+    }
+
+    .tpwthwidt .iconHuge15_2zPa9Qp {
+        background-image: url(//cdn.sencdn.com/widget/static/img/15-099e4cc.svg)
+    }
+
+    .tpwthwidt .icon16_1DyNI3Q {
+        background-image: url(//cdn.sencdn.com/widget/static/img/16-3f11b46.svg)
+    }
+
+    .tpwthwidt .iconHuge16_2ih9O4C {
+        background-image: url(//cdn.sencdn.com/widget/static/img/16-e08da10.svg)
+    }
+
+    .tpwthwidt .icon17_3yjnWZq {
+        background-image: url(//cdn.sencdn.com/widget/static/img/17-a880edb.svg)
+    }
+
+    .tpwthwidt .iconHuge17_2wZW_a0 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/17-e81ec02.svg)
+    }
+
+    .tpwthwidt .icon18_20cPvIs {
+        background-image: url(//cdn.sencdn.com/widget/static/img/18-cc145a0.svg)
+    }
+
+    .tpwthwidt .iconHuge18_14nDCCO {
+        background-image: url(//cdn.sencdn.com/widget/static/img/18-69292fb.svg)
+    }
+
+    .tpwthwidt .icon19_1BJ5_wK {
+        background-image: url(//cdn.sencdn.com/widget/static/img/19-796a761.svg)
+    }
+
+    .tpwthwidt .iconHuge19_2Th4z9K {
+        background-image: url(//cdn.sencdn.com/widget/static/img/19-5cb0263.svg)
+    }
+
+    .tpwthwidt .icon20_279vvLS {
+        background-image: url(//cdn.sencdn.com/widget/static/img/20-d084901.svg)
+    }
+
+    .tpwthwidt .iconHuge20_1eyP9M9 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/20-e77f930.svg)
+    }
+
+    .tpwthwidt .icon21_3qAPyLj {
+        background-image: url(//cdn.sencdn.com/widget/static/img/21-c228663.svg)
+    }
+
+    .tpwthwidt .iconHuge21_18fgDqM {
+        background-image: url(//cdn.sencdn.com/widget/static/img/21-05d7536.svg)
+    }
+
+    .tpwthwidt .icon22_12WYbJL {
+        background-image: url(//cdn.sencdn.com/widget/static/img/22-404bc44.svg)
+    }
+
+    .tpwthwidt .iconHuge22_HkfcC2S {
+        background-image: url(//cdn.sencdn.com/widget/static/img/22-b815302.svg)
+    }
+
+    .tpwthwidt .icon23_1n-N_Cx {
+        background-image: url(//cdn.sencdn.com/widget/static/img/23-d63b3a8.svg)
+    }
+
+    .tpwthwidt .iconHuge23_2lEr1DO {
+        background-image: url(//cdn.sencdn.com/widget/static/img/23-c4f9d1a.svg)
+    }
+
+    .tpwthwidt .icon24_1SEAhTf {
+        background-image: url(//cdn.sencdn.com/widget/static/img/24-3ad2539.svg)
+    }
+
+    .tpwthwidt .iconHuge24_EOBItPv {
+        background-image: url(//cdn.sencdn.com/widget/static/img/24-c9ef616.svg)
+    }
+
+    .tpwthwidt .icon25_fpfriVc {
+        background-image: url(//cdn.sencdn.com/widget/static/img/25-ae111ec.svg)
+    }
+
+    .tpwthwidt .iconHuge25_3aiEdME {
+        background-image: url(//cdn.sencdn.com/widget/static/img/25-f7b3f19.svg)
+    }
+
+    .tpwthwidt .icon26_3mPQZZ_ {
+        background-image: url(//cdn.sencdn.com/widget/static/img/26-58a7055.svg)
+    }
+
+    .tpwthwidt .iconHuge26_1SmtpN4 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/26-62b86d1.svg)
+    }
+
+    .tpwthwidt .icon27_1wkrha2 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/27-0384d85.svg)
+    }
+
+    .tpwthwidt .iconHuge27_kbJ42DQ {
+        background-image: url(//cdn.sencdn.com/widget/static/img/27-f76218b.svg)
+    }
+
+    .tpwthwidt .icon28_1r5_u_o {
+        background-image: url(//cdn.sencdn.com/widget/static/img/28-3d07603.svg)
+    }
+
+    .tpwthwidt .iconHuge28_1TlPnCS {
+        background-image: url(//cdn.sencdn.com/widget/static/img/28-3bf2f44.svg)
+    }
+
+    .tpwthwidt .icon29_3gQLtvJ {
+        background-image: url(//cdn.sencdn.com/widget/static/img/29-2c0e566.svg)
+    }
+
+    .tpwthwidt .iconHuge29_197K-Nt {
+        background-image: url(//cdn.sencdn.com/widget/static/img/29-5322f7a.svg)
+    }
+
+    .tpwthwidt .icon30_14hy21D {
+        background-image: url(//cdn.sencdn.com/widget/static/img/30-9446a15.svg)
+    }
+
+    .tpwthwidt .iconHuge30_2toNIrP {
+        background-image: url(//cdn.sencdn.com/widget/static/img/30-83daec5.svg)
+    }
+
+    .tpwthwidt .icon31_36i5RP2 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/31-7d198c6.svg)
+    }
+
+    .tpwthwidt .iconHuge31_1wnHDoC {
+        background-image: url(//cdn.sencdn.com/widget/static/img/31-d259d5a.svg)
+    }
+
+    .tpwthwidt .icon32_3ED4m3Y {
+        background-image: url(//cdn.sencdn.com/widget/static/img/32-e64346f.svg)
+    }
+
+    .tpwthwidt .iconHuge32_3cw5FDS {
+        background-image: url(//cdn.sencdn.com/widget/static/img/32-33931fa.svg)
+    }
+
+    .tpwthwidt .icon33_2mSErYx {
+        background-image: url(//cdn.sencdn.com/widget/static/img/33-68e25f2.svg)
+    }
+
+    .tpwthwidt .iconHuge33_2eTkJ2k {
+        background-image: url(//cdn.sencdn.com/widget/static/img/33-6c261c7.svg)
+    }
+
+    .tpwthwidt .icon34_2XxdIgl {
+        background-image: url(//cdn.sencdn.com/widget/static/img/34-ed0cd9f.svg)
+    }
+
+    .tpwthwidt .iconHuge34_7Qbt6EJ {
+        background-image: url(//cdn.sencdn.com/widget/static/img/34-4a07eb6.svg)
+    }
+
+    .tpwthwidt .icon35_2gLG57K {
+        background-image: url(//cdn.sencdn.com/widget/static/img/35-f7d0a9a.svg)
+    }
+
+    .tpwthwidt .iconHuge35_2CTjpaM {
+        background-image: url(//cdn.sencdn.com/widget/static/img/35-b42d87c.svg)
+    }
+
+    .tpwthwidt .icon36_2dUfkBm {
+        background-image: url(//cdn.sencdn.com/widget/static/img/36-ff46251.svg)
+    }
+
+    .tpwthwidt .iconHuge36_3I1Rbwz {
+        background-image: url(//cdn.sencdn.com/widget/static/img/36-e4fa014.svg)
+    }
+
+    .tpwthwidt .icon37_2ravOkD {
+        background-image: url(//cdn.sencdn.com/widget/static/img/37-1a6e063.svg)
+    }
+
+    .tpwthwidt .iconHuge37_3bJlvUH {
+        background-image: url(//cdn.sencdn.com/widget/static/img/37-18f0c21.svg)
+    }
+
+    .tpwthwidt .icon38_23gFRo2 {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzLjguMyAoMjk4MDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPjM4PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IuWkqeawlOWbvuaghyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IuWkqeawlOWbvuagh1/pu5jorqTog4zmma8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDQuMDAwMDAwLCAtMjA2MS4wMDAwMDApIiBmaWxsPSIjRjJENzE2Ij4KICAgICAgICAgICAgPHBhdGggZD0iTTIxNiwyMDgzIEMyMjEuNTIyODQ3LDIwODMgMjI2LDIwNzguNTIyODUgMjI2LDIwNzMgQzIyNiwyMDY3LjQ3NzE1IDIyMS41MjI4NDcsMjA2MyAyMTYsMjA2MyBDMjEwLjQ3NzE1MywyMDYzIDIwNiwyMDY3LjQ3NzE1IDIwNiwyMDczIEMyMDYsMjA3OC41MjI4NSAyMTAuNDc3MTUzLDIwODMgMjE2LDIwODMgWiIgaWQ9Ik92YWwtMTQ5Ij48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=)
+    }
+
+    .tpwthwidt .iconHuge38_30jH8US {
+        background-image: url(//cdn.sencdn.com/widget/static/img/38-d1fe862.svg)
+    }
+
+    .tpwthwidt .icon99_2sRZ6KK {
+        background-image: url(//cdn.sencdn.com/widget/static/img/99-5534410.svg)
+    }
+
+    .tpwthwidt .iconHuge99_1plOcZt {
+        background-image: url(//cdn.sencdn.com/widget/static/img/99-b8dbbc1.svg)
+    }
+
+    .tpwthwidt .iconLogo_epeg241 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/logo-cbb6bc3.svg)
+    }
+
+    .tpwthwidt .iconSwitch_1I_BFIR {
+        background-image: url(//cdn.sencdn.com/widget/static/img/switch-1cbe8e0.svg)
+    }
+
+    .tpwthwidt .iconClose_2zUdarz {
+        background-image: url(//cdn.sencdn.com/widget/static/img/close-631d1df.svg)
+    }
+
+    .tpwthwidt .iconMore_3Lup-bV {
+        background-image: url(//cdn.sencdn.com/widget/static/img/more-9bcd720.svg)
+    }
+
+    .tpwthwidt .iconFail_1llECgv {
+        background-image: url(//cdn.sencdn.com/widget/static/img/fail-ef099f7.svg)
+    }
+
+    .tpwthwidt .iconError_1exm9Ov {
+        background-image: url(//cdn.sencdn.com/widget/static/img/error-a0874c0.svg)
+    }</style>
+    <style type="text/css">.tpwthwidt .temperature_WfAilCZ {
+        font-size: 48px;
+        line-height: 64px;
+        margin: 0 auto
+    }
+
+    .tpwthwidt .temperature_minus_2Rn2EVP {
+        margin-left: -10px
+    }
+
+    .tpwthwidt .degreeIcon_kAgwzKq {
+        position: relative;
+        top: -10px;
+        font-size: 32px
+    }
+
+    .tpwthwidt .text_2uVFOep {
+        text-align: center;
+        font-size: 16px
+    }
+
+    .tpwthwidt .icon_2h5KnQG {
+        width: 56px;
+        height: 56px;
+        background-size: 56px 56px
+    }
+
+    .tpwthwidt .text_2uVFOep {
+        font-size: 14px;
+        margin-top: -4px
+    }</style>
+    <style type="text/css">.tpwthwidt .container_3v-2i58 {
+        box-shadow: 0 -1px hsla(0, 0%, 100%, .2)
+    }
+
+    .tpwthwidt .itemLeftSplitter_3Li2eKb {
+        box-shadow: 1px 0 hsla(0, 0%, 100%, .2)
+    }
+
+    .tpwthwidt .itemRightSplitter_3hKmC0n {
+        box-shadow: -1px 0 hsla(0, 0%, 100%, .2)
+    }
+
+    .tpwthwidt .subtitle1_ied_gGc, .tpwthwidt .title_1xIvSjR {
+        text-align: center
+    }
+
+    .tpwthwidt .subtitle2_2TVz7cR {
+        text-align: center
+    }
+
+    .tpwthwidt .icon_2hEVXFb {
+        margin: 8px auto
+    }</style>
+    <style type="text/css">.tpwthwidt .alarmCircle_3AMgQ7D, .tpwthwidt .alarmGlanceCircle_cBP0WHK {
+        font-family: PingFang SC, Microsoft YaHei UI, STHeitiSC-Light, Microsoft YaHei;
+        font-size: 12px
+    }
+
+    .tpwthwidt .alarmGlanceCircle_cBP0WHK {
+        padding: 3px !important
+    }
+
+    .tpwthwidt .alarmCoverBadge_Uz81qZy {
+        font-size: 12px
+    }
+
+    .tpwthwidt .alarmGlanceBadge_2NUBRhl {
+        font-size: 12px;
+        padding: 3px 8px 3px 5px !important
+    }
+
+    .tpwthwidt .alarmBadge_3MnON3- {
+        font-size: 12px
+    }
+
+    @media screen and (max-width: 480px) and (max-height: 800px) {
+        .tpwthwidt .alarmBadge_3MnON3- {
+            font-size: 14px
+        }
+    }
+
+    @media screen and (max-width: 320px) and (max-height: 800px) {
+        .tpwthwidt .alarmBadge_3MnON3- {
+            font-size: 12px
+        }
+    }
+
+    .tpwthwidt .tooltip_3AVXdzc {
+        position: relative;
+        display: inline-block
+    }
+
+    .tpwthwidt .tooltiptext_1G3GATF {
+        font-size: 12px;
+        visibility: hidden;
+        width: 180px;
+        background-color: rgba(0, 0, 0, .85);
+        color: #fff;
+        text-align: center;
+        border-radius: 4px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 120%;
+        left: 50%;
+        margin-left: -90px
+    }
+
+    .tpwthwidt .tooltiptext_1G3GATF:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, .85) transparent transparent
+    }
+
+    .tpwthwidt .tooltip_3AVXdzc:hover .tooltiptext_1G3GATF {
+        visibility: visible
+    }
+
+    @font-face {
+        font-family: alarmicon;
+        src: url(//cdn.sencdn.com/widget/static/fonts/alarm-iconfont-703b5a2.eot);
+        src: url(//cdn.sencdn.com/widget/static/fonts/alarm-iconfont-703b5a2.eot#iefix) format("embedded-opentype"), url(//cdn.sencdn.com/widget/static/fonts/alarm-iconfont-899f03d.woff) format("woff"), url(//cdn.sencdn.com/widget/static/fonts/alarm-iconfont-42d6b32.ttf) format("truetype"), url(//cdn.sencdn.com/widget/static/img/alarm-iconfont-3afb00f.svg) format("svg")
+    }
+
+    .tpwthwidt .icon_1M-fn51 {
+        font-family: alarmicon !important;
+        font-size: 14px;
+        font-style: normal;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: .2px;
+        -moz-osx-font-smoothing: grayscale
+    }
+
+    .tpwthwidt .icon-thunder_3Ce--Ty:before {
+        content: "\E632"
+    }
+
+    .tpwthwidt .icon-cold_1tnlFZo:before {
+        content: "\E62C"
+    }
+
+    .tpwthwidt .icon-hot_u2Zh1Ko:before {
+        content: "\E635"
+    }
+
+    .tpwthwidt .icon-frost_2FEU99y:before {
+        content: "\E634"
+    }
+
+    .tpwthwidt .icon-freeze-wire_1DEhAC2:before {
+        content: "\E630"
+    }
+
+    .tpwthwidt .icon-rain_2bqm_t3:before {
+        content: "\E62D"
+    }
+
+    .tpwthwidt .icon-snow_2piTd2-:before {
+        content: "\E62E"
+    }
+
+    .tpwthwidt .icon-fog_2LfdDYG:before {
+        content: "\E628"
+    }
+
+    .tpwthwidt .icon-dry_1qsK9Yw:before {
+        content: "\E62B"
+    }
+
+    .tpwthwidt .icon-cold-wave_2Xc2GLB:before {
+        content: "\E62A"
+    }
+
+    .tpwthwidt .icon-typhoon_3HO2yyx:before {
+        content: "\E626"
+    }
+
+    .tpwthwidt .icon-hailstone_T1s9Gde:before {
+        content: "\E625"
+    }
+
+    .tpwthwidt .icon-haze_8GE4IeA:before {
+        content: "\E633"
+    }
+
+    .tpwthwidt .icon-freeze-road_1OT16AH:before {
+        content: "\E631"
+    }
+
+    .tpwthwidt .icon-duststorm_a3k7i1F:before {
+        content: "\E62F"
+    }
+
+    .tpwthwidt .icon-wind_sIQScuj:before {
+        content: "\E629"
+    }
+
+    .tpwthwidt .icon-multi_HcNCsRl:before {
+        content: "\E638"
+    }
+
+    .tpwthwidt .icon-placeholder_1aLr0fi:before {
+        content: "\E637"
+    }
+
+    .tpwthwidt .color-10_2mj2-9z {
+        color: #62acff
+    }
+
+    .tpwthwidt .color-20_4901g82 {
+        color: #ffde00
+    }
+
+    .tpwthwidt .color-30_3Jzjptv {
+        color: #ff9403
+    }
+
+    .tpwthwidt .color-40_2kH5wyX {
+        color: #f23030
+    }
+
+    .tpwthwidt .color-multi_npw1whu {
+        color: #ffde00
+    }
+
+    .tpwthwidt .background-10_2OApPEl {
+        background-color: #497df5
+    }
+
+    .tpwthwidt .background-20_26mRRr_ {
+        background-color: #ffde00
+    }
+
+    .tpwthwidt .background-30_1bBJYzO {
+        background-color: #ff9403
+    }
+
+    .tpwthwidt .background-40_1_wavt6 {
+        background-color: #f23030
+    }
+
+    .tpwthwidt .background-multi_1bH6qJn {
+        background-color: rgba(0, 0, 0, .5);
+        box-shadow: inset 0 0 0 1px hsla(0, 0%, 100%, .3)
+    }
+
+    .tpwthwidt .background-placeholder_HfEXcov {
+        background-color: #fff;
+        border: 1px dashed gray
+    }
+
+    .tpwthwidt .iconColor-10_3Mym08t, .tpwthwidt .iconColor-30_1zWRSjf.text-40_1JaC8e-, .tpwthwidt .iconColor-40_3smUp-1, .tpwthwidt .text-10_2GIxXgZ, .tpwthwidt .text-30_2P2xt5X, .tpwthwidt .text-multi_b_o4Jtu {
+        color: #fff
+    }
+
+    .tpwthwidt .iconColor-20_1XfF2qb, .tpwthwidt .text-20_3Cq2MFc {
+        color: #000
+    }
+
+    .tpwthwidt .iconColor-multi_F6nXZMi {
+        color: #ffde00
+    }
+
+    .tpwthwidt .text-placeholder_1XX1Iji {
+        color: #585858
+    }
+
+    .tpwthwidt .iconColor-placeholder_BSWp66h {
+        color: #cacaca
+    }</style>
+    <style type="text/css">.tpwthwidt .container_34tvPM- {
+        display: block
+    }
+
+    .tpwthwidt .wapContainer_v7R1ud_ {
+        display: none
+    }
+
+    @media screen and (max-width: 480px) and (max-height: 800px) {
+        .tpwthwidt .container_34tvPM- {
+            display: none
+        }
+
+        .tpwthwidt .wapContainer_v7R1ud_ {
+            display: block
+        }
+    }
+
+    .tpwthwidt .name_3kjfnzp {
+        margin: 14px 14px 10px;
+        min-width: 86px;
+        display: inline-table
+    }
+
+    .tpwthwidt .title_1hlXK6u {
+        display: inline-block
+    }
+
+    .tpwthwidt .subtitle_T6IY8W_ {
+        display: inline-block;
+        margin-left: 5px
+    }
+
+    .tpwthwidt .icon_3PT9AHL {
+        width: 46px;
+        height: 46px;
+        float: right
+    }
+
+    .tpwthwidt .item_bmoQXbg {
+        float: right
+    }
+
+    .tpwthwidt .wapIcon2_2q32sPN {
+        width: 46px;
+        height: 46px;
+        float: right
+    }</style>
+    <style type="text/css">.tpwthwidt .container__sDy_v_ {
+        cursor: pointer;
+        width: 150px;
+        margin: 0 auto
+    }</style>
+    <style type="text/css">.tpwthwidt .title_3GzEIhf {
+        visibility: hidden;
+        position: absolute;
+        white-space: nowrap;
+        text-overflow: clip;
+        overflow: hidden;
+        font-family: PingFang SC, Microsoft YaHei UI Light, STHeitiSC-Light;
+        font-size: 14px;
+        color: #fff
+    }</style>
+    <style type="text/css">.tpwthwidt .container_2jTxZbY {
+        position: fixed;
+        width: 86px;
+        height: 54px;
+        border-radius: 4px;
+        opacity: 1;
+        background: hsla(0, 0%, 5%, .95);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, .15);
+        z-index: 2147483600
+    }
+
+    .tpwthwidt .wideContainer_1bxTpRZ {
+        width: 114px
+    }
+
+    .tpwthwidt .point_3vvSLv8, .tpwthwidt .wideContainerPoint_23ADK1Q {
+        cursor: pointer
+    }
+
+    .tpwthwidt .icon_2kMSBtF, .tpwthwidt .iconError_3SVXVS4 {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background-size: 32px 32px;
+        margin: 10px 0 10px 8px;
+        float: left;
+        background-repeat: no-repeat
+    }
+
+    .tpwthwidt .context_IA7GHGK {
+        display: inline-block;
+        white-space: nowrap;
+        padding: 8px 9px
+    }
+
+    .tpwthwidt .title_3MQJQy3 {
+        white-space: nowrap;
+        text-overflow: clip;
+        overflow: hidden
+    }
+
+    .tpwthwidt .blobContainerInline_22uunyQ {
+        position: relative;
+        display: inline-block;
+        width: 95px;
+        height: 32px
+    }
+
+    .tpwthwidt .blobContainer_1S9wEfh {
+        width: 100%;
+        height: 100%
+    }
+
+    .tpwthwidt .blob_1oL_l01 {
+        width: 10px;
+        height: 10px;
+        background: #e5e5e5;
+        border-radius: 50%;
+        position: absolute;
+        left: calc(50% - 5px);
+        top: calc(50% - 5px);
+        box-shadow: 0 0 5px hsla(0, 0%, 100%, .15)
+    }
+
+    .tpwthwidt .blob2_1G5JDU1 {
+        -webkit-animation: animate-to-2_PYjst7o 1.5s infinite;
+        animation: animate-to-2_PYjst7o 1.5s infinite
+    }
+
+    .tpwthwidt .blob3_3Aq9FUx {
+        -webkit-animation: animate-to-3_wpu_Z6j 1.5s infinite;
+        animation: animate-to-3_wpu_Z6j 1.5s infinite
+    }
+
+    .tpwthwidt .blob1_w3H979k {
+        -webkit-animation: animate-to-1_2W71PQu 1.5s infinite;
+        animation: animate-to-1_2W71PQu 1.5s infinite
+    }
+
+    .tpwthwidt .blob4_3PE0EB4 {
+        -webkit-animation: animate-to-4_1wAjlQw 1.5s infinite;
+        animation: animate-to-4_1wAjlQw 1.5s infinite
+    }
+
+    .tpwthwidt .blob0_3nBkhz8 {
+        -webkit-animation: animate-to-0_25a2GFX 1.5s infinite;
+        animation: animate-to-0_25a2GFX 1.5s infinite
+    }
+
+    .tpwthwidt .blob5_B1PxVP5 {
+        -webkit-animation: animate-to-5_2xigEGx 1.5s infinite;
+        animation: animate-to-5_2xigEGx 1.5s infinite
+    }
+
+    @-webkit-keyframes animate-to-2_PYjst7o {
+        25%, 75% {
+            -webkit-transform: translateX(-5px) scale(.75);
+            transform: translateX(-5px) scale(.75)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @keyframes animate-to-2_PYjst7o {
+        25%, 75% {
+            -webkit-transform: translateX(-5px) scale(.75);
+            transform: translateX(-5px) scale(.75)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @-webkit-keyframes animate-to-3_wpu_Z6j {
+        25%, 75% {
+            -webkit-transform: translateX(5px) scale(.75);
+            transform: translateX(5px) scale(.75)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @keyframes animate-to-3_wpu_Z6j {
+        25%, 75% {
+            -webkit-transform: translateX(5px) scale(.75);
+            transform: translateX(5px) scale(.75)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @-webkit-keyframes animate-to-1_2W71PQu {
+        25% {
+            -webkit-transform: translateX(-5px) scale(.75);
+            transform: translateX(-5px) scale(.75)
+        }
+        50%, 75% {
+            -webkit-transform: translateX(-15px) scale(.6);
+            transform: translateX(-15px) scale(.6)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @keyframes animate-to-1_2W71PQu {
+        25% {
+            -webkit-transform: translateX(-5px) scale(.75);
+            transform: translateX(-5px) scale(.75)
+        }
+        50%, 75% {
+            -webkit-transform: translateX(-15px) scale(.6);
+            transform: translateX(-15px) scale(.6)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @-webkit-keyframes animate-to-4_1wAjlQw {
+        25% {
+            -webkit-transform: translateX(5px) scale(.75);
+            transform: translateX(5px) scale(.75)
+        }
+        50%, 75% {
+            -webkit-transform: translateX(15px) scale(.6);
+            transform: translateX(15px) scale(.6)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @keyframes animate-to-4_1wAjlQw {
+        25% {
+            -webkit-transform: translateX(5px) scale(.75);
+            transform: translateX(5px) scale(.75)
+        }
+        50%, 75% {
+            -webkit-transform: translateX(15px) scale(.6);
+            transform: translateX(15px) scale(.6)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @-webkit-keyframes animate-to-0_25a2GFX {
+        25% {
+            -webkit-transform: translateX(-5px) scale(.75);
+            transform: translateX(-5px) scale(.75)
+        }
+        50% {
+            -webkit-transform: translateX(-15px) scale(.6);
+            transform: translateX(-15px) scale(.6)
+        }
+        75% {
+            -webkit-transform: translateX(-25px) scale(.5);
+            transform: translateX(-25px) scale(.5)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @keyframes animate-to-0_25a2GFX {
+        25% {
+            -webkit-transform: translateX(-5px) scale(.75);
+            transform: translateX(-5px) scale(.75)
+        }
+        50% {
+            -webkit-transform: translateX(-15px) scale(.6);
+            transform: translateX(-15px) scale(.6)
+        }
+        75% {
+            -webkit-transform: translateX(-25px) scale(.5);
+            transform: translateX(-25px) scale(.5)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @-webkit-keyframes animate-to-5_2xigEGx {
+        25% {
+            -webkit-transform: translateX(5px) scale(.75);
+            transform: translateX(5px) scale(.75)
+        }
+        50% {
+            -webkit-transform: translateX(15px) scale(.6);
+            transform: translateX(15px) scale(.6)
+        }
+        75% {
+            -webkit-transform: translateX(25px) scale(.5);
+            transform: translateX(25px) scale(.5)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    @keyframes animate-to-5_2xigEGx {
+        25% {
+            -webkit-transform: translateX(5px) scale(.75);
+            transform: translateX(5px) scale(.75)
+        }
+        50% {
+            -webkit-transform: translateX(15px) scale(.6);
+            transform: translateX(15px) scale(.6)
+        }
+        75% {
+            -webkit-transform: translateX(25px) scale(.5);
+            transform: translateX(25px) scale(.5)
+        }
+        95% {
+            -webkit-transform: translateX(0) scale(1);
+            transform: translateX(0) scale(1)
+        }
+    }
+
+    .tpwthwidt .container_2jTxZbY {
+        background: #a0a1a4
+    }</style>
+    <style type="text/css">.tpwthwidt .item_2cyi0o1, .tpwthwidt .title_1NlwTka {
+        text-align: center
+    }
+
+    .tpwthwidt .info_3cA3ROr {
+        font-size: 24px;
+        text-align: center
+    }
+
+    @media screen and (max-width: 480px) and (max-height: 800px) {
+        .tpwthwidt .info_3cA3ROr {
+            font-size: 32px
+        }
+    }
+
+    @media screen and (max-width: 320px) and (max-height: 800px) {
+        .tpwthwidt .info_3cA3ROr {
+            font-size: 24px
+        }
+    }
+
+    .tpwthwidt .title_1NlwTka {
+        margin-top: 6px;
+        text-align: left
+    }</style>
+    <style type="text/css">.tpwthwidt .container_aaK_vMn {
+        display: inline-block
+    }
+
+    .tpwthwidt .icon_2vazXGH {
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        margin: 0 4px
+    }
+
+    .tpwthwidt .text_1vUR5ag, .tpwthwidt .title_2I35arv {
+        font-family: PingFang SC, Microsoft YaHei UI, STHeitiSC-Light, Microsoft YaHei;
+        font-size: 14px;
+        color: #000;
+        display: inline-block;
+        margin: 4px
+    }
+
+    .tpwthwidt .coverAlarmPane_2o92LQm {
+        display: inline-block
+    }</style>
+    <style type="text/css">.tpwthwidt .iconSmall_Vs0w7GR {
+        width: 20px;
+        height: 20px;
+        background-size: 20px 20px;
+        background-repeat: no-repeat
+    }
+
+    .tpwthwidt .iconMiddle_3dY_1iP {
+        width: 24px;
+        height: 24px;
+        background-size: 24px 24px;
+        background-repeat: no-repeat
+    }
+
+    .tpwthwidt .iconHuge_TJXR1Ov {
+        width: 56px;
+        height: 56px;
+        background-size: 56px 56px;
+        background-repeat: no-repeat
+    }
+
+    .tpwthwidt .icon0_1p11pIJ {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzLjguMyAoMjk4MDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPjA8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0i5aSp5rCU5Zu+5qCHIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0i5aSp5rCU5Zu+5qCHX+eZveiJsuiDjOaZryIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4wMDAwMDAsIC04MC4wMDAwMDApIiBmaWxsPSIjRkZENjEwIj4KICAgICAgICAgICAgPHBhdGggZD0iTTIxNiwxMDIgQzIyMS41MjI4NDcsMTAyIDIyNiw5Ny41MjI4NDc1IDIyNiw5MiBDMjI2LDg2LjQ3NzE1MjUgMjIxLjUyMjg0Nyw4MiAyMTYsODIgQzIxMC40NzcxNTMsODIgMjA2LDg2LjQ3NzE1MjUgMjA2LDkyIEMyMDYsOTcuNTIyODQ3NSAyMTAuNDc3MTUzLDEwMiAyMTYsMTAyIFoiIGlkPSJPdmFsLTE0OSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+)
+    }
+
+    .tpwthwidt .iconHuge0_3YsZPFK {
+        background-image: url(//cdn.sencdn.com/widget/static/img/0-a24e22e.svg)
+    }
+
+    .tpwthwidt .icon1_3fYhGdh {
+        background-image: url(//cdn.sencdn.com/widget/static/img/1-1ecbfbb.svg)
+    }
+
+    .tpwthwidt .iconHuge1_3khlAHV {
+        background-image: url(//cdn.sencdn.com/widget/static/img/1-4698537.svg)
+    }
+
+    .tpwthwidt .icon2_1An2nAp {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzLjguMyAoMjk4MDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPjI8L3RpdGxlPgogICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+CiAgICA8ZGVmcz48L2RlZnM+CiAgICA8ZyBpZD0i5aSp5rCU5Zu+5qCHIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0i5aSp5rCU5Zu+5qCHX+eZveiJsuiDjOaZryIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTIwNC4wMDAwMDAsIC0xODAuMDAwMDAwKSIgZmlsbD0iI0ZGRDYxMCI+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0yMTYsMjAyIEMyMjEuNTIyODQ3LDIwMiAyMjYsMTk3LjUyMjg0NyAyMjYsMTkyIEMyMjYsMTg2LjQ3NzE1MyAyMjEuNTIyODQ3LDE4MiAyMTYsMTgyIEMyMTAuNDc3MTUzLDE4MiAyMDYsMTg2LjQ3NzE1MyAyMDYsMTkyIEMyMDYsMTk3LjUyMjg0NyAyMTAuNDc3MTUzLDIwMiAyMTYsMjAyIFoiIGlkPSJPdmFsLTE0OSI+PC9wYXRoPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+)
+    }
+
+    .tpwthwidt .iconHuge2_3FzGtSu {
+        background-image: url(//cdn.sencdn.com/widget/static/img/2-049595e.svg)
+    }
+
+    .tpwthwidt .icon3_2Tr2ePs {
+        background-image: url(//cdn.sencdn.com/widget/static/img/3-082880e.svg)
+    }
+
+    .tpwthwidt .iconHuge3_7FeNXyh {
+        background-image: url(//cdn.sencdn.com/widget/static/img/3-c0eccae.svg)
+    }
+
+    .tpwthwidt .icon4_1rOJtal {
+        background-image: url(//cdn.sencdn.com/widget/static/img/4-1c18b8e.svg)
+    }
+
+    .tpwthwidt .iconHuge4_L7gSzui {
+        background-image: url(//cdn.sencdn.com/widget/static/img/4-fd67ef8.svg)
+    }
+
+    .tpwthwidt .icon5_JH-jLAD {
+        background-image: url(//cdn.sencdn.com/widget/static/img/5-4191e7f.svg)
+    }
+
+    .tpwthwidt .iconHuge5_37CFWBc {
+        background-image: url(//cdn.sencdn.com/widget/static/img/5-75df77f.svg)
+    }
+
+    .tpwthwidt .icon6_3htOMiS {
+        background-image: url(//cdn.sencdn.com/widget/static/img/6-258a83d.svg)
+    }
+
+    .tpwthwidt .iconHuge6_2VBLqrS {
+        background-image: url(//cdn.sencdn.com/widget/static/img/6-1c63200.svg)
+    }
+
+    .tpwthwidt .icon7_2pfcGTy {
+        background-image: url(//cdn.sencdn.com/widget/static/img/7-c34a54d.svg)
+    }
+
+    .tpwthwidt .iconHuge7_3xyzeHl {
+        background-image: url(//cdn.sencdn.com/widget/static/img/7-36733f2.svg)
+    }
+
+    .tpwthwidt .icon8_3vXVABd {
+        background-image: url(//cdn.sencdn.com/widget/static/img/8-6168e43.svg)
+    }
+
+    .tpwthwidt .iconHuge8_kb5h5uY {
+        background-image: url(//cdn.sencdn.com/widget/static/img/8-87ffe5d.svg)
+    }
+
+    .tpwthwidt .icon9_1j6LMbe {
+        background-image: url(//cdn.sencdn.com/widget/static/img/9-c258734.svg)
+    }
+
+    .tpwthwidt .iconHuge9_19a-JN- {
+        background-image: url(//cdn.sencdn.com/widget/static/img/9-68952c4.svg)
+    }
+
+    .tpwthwidt .icon10_1yNwBQm {
+        background-image: url(//cdn.sencdn.com/widget/static/img/10-4fcf0ca.svg)
+    }
+
+    .tpwthwidt .iconHuge10_zYoLSUw {
+        background-image: url(//cdn.sencdn.com/widget/static/img/10-6412292.svg)
+    }
+
+    .tpwthwidt .icon11_3Fc-dEW {
+        background-image: url(//cdn.sencdn.com/widget/static/img/11-137a30a.svg)
+    }
+
+    .tpwthwidt .iconHuge11_351OnjY {
+        background-image: url(//cdn.sencdn.com/widget/static/img/11-af82def.svg)
+    }
+
+    .tpwthwidt .icon12_1znD_Y- {
+        background-image: url(//cdn.sencdn.com/widget/static/img/12-e98ba78.svg)
+    }
+
+    .tpwthwidt .iconHuge12_1tPemsO {
+        background-image: url(//cdn.sencdn.com/widget/static/img/12-f770c82.svg)
+    }
+
+    .tpwthwidt .icon13_SirTTal {
+        background-image: url(//cdn.sencdn.com/widget/static/img/13-b093ce6.svg)
+    }
+
+    .tpwthwidt .iconHuge13_3eFW_7n {
+        background-image: url(//cdn.sencdn.com/widget/static/img/13-f59439f.svg)
+    }
+
+    .tpwthwidt .icon14_2ywSRIg {
+        background-image: url(//cdn.sencdn.com/widget/static/img/14-8af637c.svg)
+    }
+
+    .tpwthwidt .iconHuge14_K1u3W8n {
+        background-image: url(//cdn.sencdn.com/widget/static/img/14-abf152b.svg)
+    }
+
+    .tpwthwidt .icon15_3wwe9sH {
+        background-image: url(//cdn.sencdn.com/widget/static/img/15-a894089.svg)
+    }
+
+    .tpwthwidt .iconHuge15_2gzRGUo {
+        background-image: url(//cdn.sencdn.com/widget/static/img/15-4e87031.svg)
+    }
+
+    .tpwthwidt .icon16_3i7fRQ5 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/16-b08b9c1.svg)
+    }
+
+    .tpwthwidt .iconHuge16_1PRIY9B {
+        background-image: url(//cdn.sencdn.com/widget/static/img/16-9634738.svg)
+    }
+
+    .tpwthwidt .icon17_1YNXUof {
+        background-image: url(//cdn.sencdn.com/widget/static/img/17-ce144f8.svg)
+    }
+
+    .tpwthwidt .iconHuge17_1ZtsIfv {
+        background-image: url(//cdn.sencdn.com/widget/static/img/17-c2eaa4a.svg)
+    }
+
+    .tpwthwidt .icon18_5mj-5D6 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/18-47377c6.svg)
+    }
+
+    .tpwthwidt .iconHuge18_1IKyp3b {
+        background-image: url(//cdn.sencdn.com/widget/static/img/18-0388a3f.svg)
+    }
+
+    .tpwthwidt .icon19_2OkhjVG {
+        background-image: url(//cdn.sencdn.com/widget/static/img/19-e54898f.svg)
+    }
+
+    .tpwthwidt .iconHuge19_32krl45 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/19-885a3fd.svg)
+    }
+
+    .tpwthwidt .icon20_33dCOiv {
+        background-image: url(//cdn.sencdn.com/widget/static/img/20-5515f72.svg)
+    }
+
+    .tpwthwidt .iconHuge20_khN6bRK {
+        background-image: url(//cdn.sencdn.com/widget/static/img/20-9f167fb.svg)
+    }
+
+    .tpwthwidt .icon21_yBdHl0G {
+        background-image: url(//cdn.sencdn.com/widget/static/img/21-1c4b472.svg)
+    }
+
+    .tpwthwidt .iconHuge21_38Ix30i {
+        background-image: url(//cdn.sencdn.com/widget/static/img/21-4552372.svg)
+    }
+
+    .tpwthwidt .icon22_14Sum2f {
+        background-image: url(//cdn.sencdn.com/widget/static/img/22-a3a117e.svg)
+    }
+
+    .tpwthwidt .iconHuge22_20f8hYA {
+        background-image: url(//cdn.sencdn.com/widget/static/img/22-ec2046b.svg)
+    }
+
+    .tpwthwidt .icon23_1JNa6_J {
+        background-image: url(//cdn.sencdn.com/widget/static/img/23-a9af13e.svg)
+    }
+
+    .tpwthwidt .iconHuge23_1luwt6r {
+        background-image: url(//cdn.sencdn.com/widget/static/img/23-a1c5aa0.svg)
+    }
+
+    .tpwthwidt .icon24_3PVEtKT {
+        background-image: url(//cdn.sencdn.com/widget/static/img/24-1e97c12.svg)
+    }
+
+    .tpwthwidt .iconHuge24_2cloVRC {
+        background-image: url(//cdn.sencdn.com/widget/static/img/24-461dcd4.svg)
+    }
+
+    .tpwthwidt .icon25_28hlvfV {
+        background-image: url(//cdn.sencdn.com/widget/static/img/25-3a577ee.svg)
+    }
+
+    .tpwthwidt .iconHuge25_3lcXwfd {
+        background-image: url(//cdn.sencdn.com/widget/static/img/25-97e4ade.svg)
+    }
+
+    .tpwthwidt .icon26_30yuFsM {
+        background-image: url(//cdn.sencdn.com/widget/static/img/26-529413e.svg)
+    }
+
+    .tpwthwidt .iconHuge26_1R9aWEo {
+        background-image: url(//cdn.sencdn.com/widget/static/img/26-31f6874.svg)
+    }
+
+    .tpwthwidt .icon27_1O1b6XF {
+        background-image: url(//cdn.sencdn.com/widget/static/img/27-d0b70db.svg)
+    }
+
+    .tpwthwidt .iconHuge27_2dp1-rY {
+        background-image: url(//cdn.sencdn.com/widget/static/img/27-117ccac.svg)
+    }
+
+    .tpwthwidt .icon28_1cIN0h0 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/28-2031a1e.svg)
+    }
+
+    .tpwthwidt .iconHuge28_zfBbmjP {
+        background-image: url(//cdn.sencdn.com/widget/static/img/28-3c8a493.svg)
+    }
+
+    .tpwthwidt .icon29_22DIDeD {
+        background-image: url(//cdn.sencdn.com/widget/static/img/29-a20b6e7.svg)
+    }
+
+    .tpwthwidt .iconHuge29_1O3sCT_ {
+        background-image: url(//cdn.sencdn.com/widget/static/img/29-f196437.svg)
+    }
+
+    .tpwthwidt .icon30_2Pj1wyu {
+        background-image: url(//cdn.sencdn.com/widget/static/img/30-1329fb4.svg)
+    }
+
+    .tpwthwidt .iconHuge30_2xaz_U5 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/30-cfce49f.svg)
+    }
+
+    .tpwthwidt .icon31_1lsJACt {
+        background-image: url(//cdn.sencdn.com/widget/static/img/31-a3223bc.svg)
+    }
+
+    .tpwthwidt .iconHuge31_9mm5TpK {
+        background-image: url(//cdn.sencdn.com/widget/static/img/31-b7eeb8a.svg)
+    }
+
+    .tpwthwidt .icon32_lAqc36f {
+        background-image: url(//cdn.sencdn.com/widget/static/img/32-9605b79.svg)
+    }
+
+    .tpwthwidt .iconHuge32_3P6bI8n {
+        background-image: url(//cdn.sencdn.com/widget/static/img/32-b53d39a.svg)
+    }
+
+    .tpwthwidt .icon33_2TBrRdm {
+        background-image: url(//cdn.sencdn.com/widget/static/img/33-e530393.svg)
+    }
+
+    .tpwthwidt .iconHuge33_E8llL30 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/33-7c279e2.svg)
+    }
+
+    .tpwthwidt .icon34_2IL6-qE {
+        background-image: url(//cdn.sencdn.com/widget/static/img/34-478e7b4.svg)
+    }
+
+    .tpwthwidt .iconHuge34_1uap4IJ {
+        background-image: url(//cdn.sencdn.com/widget/static/img/34-07f55a0.svg)
+    }
+
+    .tpwthwidt .icon35_1dvvfdR {
+        background-image: url(//cdn.sencdn.com/widget/static/img/35-ea49cb3.svg)
+    }
+
+    .tpwthwidt .iconHuge35_23Oy18c {
+        background-image: url(//cdn.sencdn.com/widget/static/img/35-5db6b43.svg)
+    }
+
+    .tpwthwidt .icon36_3fdRT8L {
+        background-image: url(//cdn.sencdn.com/widget/static/img/36-37dfc12.svg)
+    }
+
+    .tpwthwidt .iconHuge36_37k3PHh {
+        background-image: url(//cdn.sencdn.com/widget/static/img/36-71a89c2.svg)
+    }
+
+    .tpwthwidt .icon37_1R2v10C {
+        background-image: url(//cdn.sencdn.com/widget/static/img/37-fe19b84.svg)
+    }
+
+    .tpwthwidt .iconHuge37_dN_jrgn {
+        background-image: url(//cdn.sencdn.com/widget/static/img/37-b93410c.svg)
+    }
+
+    .tpwthwidt .icon38_IhQv6an {
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDI0IDI0IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCAzLjguMyAoMjk4MDIpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPjM4PC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IuWkqeawlOWbvuaghyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IuWkqeawlOWbvuagh1/nmb3oibLog4zmma8iIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMDQuMDAwMDAwLCAtMjA0Ni4wMDAwMDApIiBmaWxsPSIjRkZEODBCIj4KICAgICAgICAgICAgPHBhdGggZD0iTTIxNiwyMDY4IEMyMjEuNTIyODQ3LDIwNjggMjI2LDIwNjMuNTIyODUgMjI2LDIwNTggQzIyNiwyMDUyLjQ3NzE1IDIyMS41MjI4NDcsMjA0OCAyMTYsMjA0OCBDMjEwLjQ3NzE1MywyMDQ4IDIwNiwyMDUyLjQ3NzE1IDIwNiwyMDU4IEMyMDYsMjA2My41MjI4NSAyMTAuNDc3MTUzLDIwNjggMjE2LDIwNjggWiIgaWQ9Ik92YWwtMTQ5Ij48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=)
+    }
+
+    .tpwthwidt .iconHuge38_30hdMuz {
+        background-image: url(//cdn.sencdn.com/widget/static/img/38-157a585.svg)
+    }
+
+    .tpwthwidt .icon99_tDvf7v2 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/99-cf0bbee.svg)
+    }
+
+    .tpwthwidt .iconHuge99_2HNOuxR {
+        background-image: url(//cdn.sencdn.com/widget/static/img/99-949bc44.svg)
+    }
+
+    .tpwthwidt .iconLogo_27Awhos {
+        background-image: url(//cdn.sencdn.com/widget/static/img/logo-3c903c8.svg)
+    }
+
+    .tpwthwidt .iconSwitch_2Ool3lc {
+        background-image: url(//cdn.sencdn.com/widget/static/img/switch-64c292c.svg)
+    }
+
+    .tpwthwidt .iconClose_1gaRY6g {
+        background-image: url(//cdn.sencdn.com/widget/static/img/close-3d60319.svg)
+    }
+
+    .tpwthwidt .iconMore_3lIO-hF {
+        background-image: url(//cdn.sencdn.com/widget/static/img/more-6763be1.svg)
+    }
+
+    .tpwthwidt .iconFail_248SPlG {
+        background-image: url(//cdn.sencdn.com/widget/static/img/fail-529c0c6.svg)
+    }
+
+    .tpwthwidt .iconError_LmCA2P9 {
+        background-image: url(//cdn.sencdn.com/widget/static/img/error-8070566.svg)
+    }</style>
+</head>
+<body class="main_body">
+<div class="layui-layout layui-layout-admin">
+    <!-- 顶部 -->
+    <div class="layui-header header">
+        <div class="layui-main">
+            <a href="#" class="logo">后台管理系统</a>
+            <!-- 显示/隐藏菜单 -->
+            <a href="javascript:" class="iconfont hideMenu icon-menu1"></a>
+            <!-- 天气信息 -->
+            <div class="weather" pc="">
+                <div id="tp-weather-widget">
+                    <div class="tpwthwidt" data-reactid=".0">
+                        <div class="cover_1fRJ83H container_aaK_vMn" data-reactid=".0.0">
+                            <div class="tpwidget_title_hook title_2I35arv" style="color:#FFFFFF;" data-reactid=".0.0.0">
+                                南阳
+                            </div>
+                            <div class="tpwidget_icon_hook icon_2vazXGH iconSmall_2z-CFEN icon9_1j6LMbe"
+                                 data-reactid=".0.0.1"></div>
+                            <div class="tpwidget_text_hook text_1vUR5ag" style="color:#FFFFFF;" data-reactid=".0.0.2">
+                                23°
+                            </div>
+                            <div class="tpwidget_alarm_hook coverAlarmPane_2o92LQm" data-reactid=".0.0.3">
+                                <div data-reactid=".0.0.3.0"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>(function (T, h, i, n, k, P, a, g, e) {
+                    g = function () {
+                        P = h.createElement(i);
+                        a = h.getElementsByTagName(i)[0];
+                        P.src = k;
+                        P.charset = "utf-8";
+                        P.async = 1;
+                        a.parentNode.insertBefore(P, a)
+                    };
+                    T["ThinkPageWeatherWidgetObject"] = n;
+                    T[n] || (T[n] = function () {
+                        (T[n].q = T[n].q || []).push(arguments)
+                    });
+                    T[n].l = +new Date();
+                    if (T.attachEvent) {
+                        T.attachEvent("onload", g)
+                    } else {
+                        T.addEventListener("load", g, false)
+                    }
+                }(window, document, "script", "tpwidget", "//widget.seniverse.com/widget/chameleon.js"))</script>
+                <script>tpwidget("init", {
+                    "flavor": "slim",
+                    "location": "WX4FBXXFKE4F",
+                    "geolocation": "enabled",
+                    "language": "zh-chs",
+                    "unit": "c",
+                    "theme": "chameleon",
+                    "container": "tp-weather-widget",
+                    "bubble": "disabled",
+                    "alarmType": "badge",
+                    "color": "#FFFFFF",
+                    "uid": "U9EC08A15F",
+                    "hash": "039da28f5581f4bcb5c799fb4cdfb673"
+                });
+                tpwidget("show");</script>
+            </div>
+            <!-- 顶部右侧菜单 -->
+            <ul class="layui-nav top_menu">
+                <li class="layui-nav-item" mobile="">
+                    <a href="javascript:" class="mobileAddTab" data-url="page/user/changePwd.html"><i
+                            class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>设置</cite></a>
+                </li>
+                <li class="layui-nav-item" mobile="">
+                    <a href="/systemLogout" class="signOut"><i class="iconfont icon-loginout"></i> 退出</a>
+                </li>
+                <li class="layui-nav-item" pc="">
+                    <a href="javascript:">
+                        <img src="http://pji8adcyw.bkt.clouddn.com/7d269405-75b1-4c69-bc5e-9c1e844063ce.jpg"
+                             class="layui-circle" width="35" height="35">
+                        <cite>梁老五</cite>
+                        <span class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                        <dd><a href="javascript:" data-url="/admin/system/user/userinfo"><i
+                                class="iconfont icon-zhanghu" data-icon="icon-zhanghu"></i><cite>个人资料</cite></a></dd>
+                        <dd><a href="javascript:" data-url="/admin/system/user/changePassword"><i
+                                class="iconfont icon-shezhi1" data-icon="icon-shezhi1"></i><cite>修改密码</cite></a></dd>
+                        <dd><a href="javascript:" class="changeSkin"><i
+                                class="iconfont icon-huanfu"></i><cite>更换皮肤</cite></a></dd>
+                        <dd><a href="/systemLogout" class="signOut"><i
+                                class="iconfont icon-loginout"></i><cite>退出</cite></a></dd>
+                    </dl>
+                </li>
+                <span class="layui-nav-bar" style="left: 85.5px; top: 55px; width: 0px; opacity: 0;"></span></ul>
+        </div>
+    </div>
+    <!-- 左侧导航 -->
+    <div class="layui-side layui-bg-black">
+        <div class="user-photo">
+            <a class="img" title="我的头像"><img
+                    src="http://pji8adcyw.bkt.clouddn.com/7d269405-75b1-4c69-bc5e-9c1e844063ce.jpg"></a>
+            <p>你好！<span class="userName">梁老五</span>, 欢迎登录</p>
+        </div>
+        <div class="navBar layui-side-scroll" style="height: 92px;">
+            <ul class="layui-nav layui-nav-tree">
+                <li class="layui-nav-item layui-nav-itemed"><a href="javascript:;"><i class="layui-icon"
+                                                                                      style="font-size: 20px"
+                                                                                      data-icon=""></i><cite>酒店管理</cite><span
+                        class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd class="layui-this"><a href="javascript:;" style="font-size: 20px"
+                                                  data-url="/admin/hotelReserve/list"><i class="layui-icon"
+                                                                                         style="font-size: 20px"
+                                                                                         data-icon=""></i><cite>预订管理</cite></a>
+                        </dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/hotelMember/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>酒店会员管理</cite></a>
+                        </dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/hotelFloor/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>楼层管理</cite></a></dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/hotelRoom/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>房间管理</cite></a></dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/hotelRoomType/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>房间类型管理</cite></a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="javascript:;"><i class="layui-icon" style="font-size: 20px"
+                                                                     data-icon=""></i><cite>系统管理</cite><span
+                        class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/system/dict/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>系统字典管理</cite></a>
+                        </dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/system/site/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>网站管理</cite></a></dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/system/log/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>系统日志管理</cite></a>
+                        </dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/system/rescource/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>系统资源管理</cite></a>
+                        </dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/system/menu/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>系统权限管理</cite></a>
+                        </dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/system/role/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>系统角色管理</cite></a>
+                        </dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/system/user/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>系统用户管理</cite></a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="javascript:;"><i class="layui-icon" style="font-size: 20px"
+                                                                     data-icon=""></i><cite>定时任务</cite><span
+                        class="layui-nav-more"></span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/quartzTask/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>任务列表</cite></a></dd>
+                        <dd><a href="javascript:;" style="font-size: 20px" data-url="/admin/quartzTaskLog/list"><i
+                                class="layui-icon" style="font-size: 20px" data-icon=""></i><cite>任务执行日志</cite></a>
+                        </dd>
+                    </dl>
+                </li>
+                <span class="layui-nav-bar" style="top: 22.5px; height: 0px; opacity: 0;"></span></ul>
+        </div>
+    </div>
+    <!-- 右侧内容 -->
+
+    <!-- 底部 -->
+    <div class="layui-footer footer">
+        <p>Copyright © 2018后台管理系统 Design By 马王天地 <a href="http://www.miibeian.gov.cn" target="_blank">粤ICP备14074611号</a>
+        </p>
+    </div>
+</div>
+<script>
+    var baseUrl = "";
+</script>
+<!-- 移动导航 -->
+<div class="site-tree-mobile layui-hide"><i class="layui-icon"></i></div>
+<div class="site-mobile-shade"></div>
+
+<script type="text/javascript" src="/static/layui/layui.js"></script>
+<script type="text/javascript" src="/static/js/leftNav.js?v=2.0"></script>
+<script type="text/javascript" src="/static/js/index.js?t=3.0"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b7f5096cbfe2b528bc14a1b1d84d5c9c";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+</body>
+</html>
